@@ -28,7 +28,7 @@ nav a img {
     background: linear-gradient(to right, #3118DF, #000093);
     color: white;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 55vh;
     width: 90%;
@@ -49,7 +49,7 @@ h1 {
 
 .dados {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .dados p {
