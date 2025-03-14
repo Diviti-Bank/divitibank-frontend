@@ -9,6 +9,7 @@ import { PagInicialComponent } from './pages/pag-inicial/pag-inicial.component';
 import { LoginComponent } from './pages/logCad/login/login.component';
 import { CadastroComponent } from './pages/logCad/cadastro/cadastro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import { ExtractComponent } from './pages/extract/extract.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PrincipalComponent } from './pages/principal/principal.component';
     PagInicialComponent,
     LoginComponent,
     CadastroComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    ExtractComponent
   ],
   imports: [
     BrowserModule,
