@@ -1,1 +1,86 @@
-<p>extract works!</p>
+<section>
+  <div
+    style="
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    "
+  >
+    <div id="container">
+      <div
+        style="
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-left: 4vw;
+          padding-right: 4vw;
+        "
+      >
+        <div>
+          <p>Saldo em conta:</p>
+          <p *ngIf="verSaldo">R$ {{ saldo }}</p>
+          <p *ngIf="!verSaldo">R$ ------------</p>
+        </div>
+        <div>
+          <img
+            src="assets/images/VisualizationEye.svg"
+            alt=""
+            *ngIf="verSaldo"
+            (click)="verSaldo = !verSaldo"
+          />
+          <img
+            src="assets/images/VisibilityOff.svg"
+            alt=""
+            id="img2"
+            *ngIf="!verSaldo"
+            (click)="verSaldo = !verSaldo"
+          />
+        </div>
+      </div>
+    </div>
+    <div style="width: 100%">
+      <div *ngFor="let transfer of extrato" id="transacao">
+        <div style="
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 4vw;
+        padding-right: 4vw;
+      ">
+          <div id="dadosSemDinheiro">
+            <img src="assets/images/Money.svg" alt="" />
+            <div>
+              <h2>{{ transfer.type }}</h2>
+              <p>{{ transfer.user }}</p>
+            </div>
+          </div>
+          <p
+            [ngClass]="{
+              dinheiroPer: transfer.money < 0,
+              dinheiroRec: transfer.money > 0
+            }"
+            *ngIf="verSaldo"
+          >
+            R$ {{ transfer.money | number : "1.2-2" }}
+          </p>
+          <p
+            [ngClass]="{
+              dinheiroPer: transfer.money < 0,
+              dinheiroRec: transfer.money > 0
+            }"
+            *ngIf="!verSaldo"
+          >
+            R$ -------
+          </p>
+        </div>
+      </div>
+    </div>
+    <span id="corrigirRadius">
+
+    </span>
+  </div>
+</section>

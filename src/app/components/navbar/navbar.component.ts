@@ -16,7 +16,7 @@ export class NavbarComponent {
   }
 
   navigatePrincipal() {
-    this.router.navigate(['divitibank-principal'])
+    this.router.navigate(['divitibank-main'])
   }
 
   navigatePagInicial() {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Transfer } from '../../Interfaces/Transfer';
 import { Card } from '../../Interfaces/Card';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'principal',
@@ -9,6 +10,8 @@ import { Card } from '../../Interfaces/Card';
   styleUrl: './principal.component.css',
 })
 export class PrincipalComponent {
+  constructor(private router: Router) {}
+
   verSaldo: boolean = false;
   saldo: number = 6158.89;
   extrato: Transfer[] = [
@@ -40,4 +43,8 @@ export class PrincipalComponent {
       color: 2,
     },
   ];
+
+  navigateExtract() {
+    this.router.navigate(['divitibank-extract']);
+  }
 }
