@@ -1,13 +1,112 @@
 <section>
-    <div id="saldo">
-        <div>
-            <h2>Saldo em conta:</h2>
-            <h2 *ngIf="verSaldo">R$ {{saldo}}</h2>
-            <h2 *ngIf="!verSaldo">R$ ------------</h2>
-        </div>
-        <div>
-            <img src="assets/images/VisualizationEye.svg" alt="" *ngIf="verSaldo" (click)="verSaldo = !verSaldo">
-            <img src="assets/images/VisibilityOff.svg" alt="" id="img2" *ngIf="!verSaldo" (click)="verSaldo = !verSaldo">
-        </div>
+  <div id="saldo">
+    <div>
+      <p>Saldo em conta:</p>
+      <p *ngIf="verSaldo">R$ {{ saldo }}</p>
+      <p *ngIf="!verSaldo">R$ ------------</p>
     </div>
+    <div>
+      <img
+        src="assets/images/VisualizationEye.svg"
+        alt=""
+        *ngIf="verSaldo"
+        (click)="verSaldo = !verSaldo"
+      />
+      <img
+        src="assets/images/VisibilityOff.svg"
+        alt=""
+        id="img2"
+        *ngIf="!verSaldo"
+        (click)="verSaldo = !verSaldo"
+      />
+    </div>
+  </div>
+  <button id="transferir">
+    Transferir
+    <img src="assets/images/Transfer.svg" alt="" />
+  </button>
+  <div id="cards">
+    <div id="card1">
+      <p>Histórico de operações</p>
+      <div id="dadosExtrato">
+        <div *ngFor="let transfer of extrato | slice : 0 : 5" id="transacao">
+          <div id="dadosSemDinheiro">
+            <img src="assets/images/Money.svg" alt="" />
+            <div>
+              <h2>{{ transfer.type }}</h2>
+              <p>{{ transfer.user }}</p>
+            </div>
+          </div>
+          <p
+            [ngClass]="{
+              dinheiroPer: transfer.money < 0,
+              dinheiroRec: transfer.money > 0
+            }"
+          >
+            R$ {{ transfer.money | number:'1.2-2' }}
+          </p>
+        </div>
+      </div>
+      <span>
+        <img src="assets/images/BlackLine.svg" alt="" />
+        <p>Extrato completo ></p>
+      </span>
+    </div>
+    <div id="card2">
+      <span>
+        <p>Cartões ></p>
+        <img src="assets/images/BlackLine.svg" alt="" />
+      </span>
+      <div id="divitiCards">
+        <div *ngFor="let card of cartoes | slice:0:2">
+          <div id="cartao">
+              <div *ngIf="card.color == 1">
+                  <img
+                    src="assets/images/DivitiCardBlue.svg"
+                    alt=""
+                  />
+                  <p>{{card.name}}</p>
+              </div>
+              <div *ngIf="card.color == 2">
+                  <img
+                    src="assets/images/DivitiCardBlack.svg"
+                    alt=""
+                  />
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div>
+      <img src="assets/images/BigLogo.svg" alt="" id="logo">
+    </div>
+    <div>
+      <h2>Informações</h2>
+      <br>
+      <p>Políticas de privacidade</p>
+      <br>
+      <p>Ouvidoria</p>
+      <br>
+      <p>Canais de atendimento</p>
+    </div>
+    <div>
+      <h2>Redes sociais</h2>
+      <span>
+        <img src="assets/images/Instagram.svg" alt="">
+        <p>Instagram</p>
+      </span>
+      <span>
+        <img src="assets/images/WhatsApp.svg" alt="">
+        <p>Whatsapp</p>
+      </span>
+      <br>
+      <h2>Contato</h2>
+      <span>
+        <img src="assets/images/Phone.svg" alt="">
+        <p>(11) 99999-9999</p>
+      </span>
+    </div>
+  </footer>
 </section>

@@ -4,10 +4,10 @@
     align-items: end;
     flex-direction: column;
 
-    width: 100vw;
+    width: 99vw;
     height: 12vh;
 
-    position: static;
+    position: relative; /* Ajustado para servir de referência para o dropdown */
 }
 
 nav {
@@ -19,6 +19,8 @@ nav {
 
     width: 100%;
     height: 100%;
+
+    position: relative; /* Para evitar que o dropdown empurre a navbar */
 
     div {
         margin-right: 20px;
@@ -46,40 +48,37 @@ div {
 
 #dropDown {
     display: none;
-    margin-top: -220px;
-}
-
-nav:has(#checkbox:checked)+#dropDown {
-    display: flex;
-    justify-content: center;
-    align-items: start;
+    position: absolute; /* Agora fica fora do fluxo da página */
+    top: 100%; /* Faz o dropdown aparecer logo abaixo da navbar */
+    right: 20px; /* Mantém alinhado à direita */
+    
+    background-color: #000093;
+    color: #FFFFFF;
+    
+    padding: 20px;
+    border-radius: 20px;
+    
     flex-direction: column;
     gap: 20px;
 
-    position: relative;
-
-    color: #FFFFFF;
-    background-color: #000093;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    border-radius: 20px;
-
-    transform: translateY(220px);
-
-    img{
+    img {
         width: 25px;
-
         margin-right: 10px;
     }
 
-    p{
+    p {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+}
+
+/* Estiliza o dropdown quando o checkbox estiver marcado */
+nav:has(#checkbox:checked) + #dropDown {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 30px;
 }
 
 #underArrow {
