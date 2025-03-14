@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -8,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(private router: Router) { }
+
+  navigateUserInfo(){
+    this.router.navigate(['divitibank-userInfo'])
+  }
+
+  navigatePrincipal() {
+    this.router.navigate(['divitibank-principal'])
+  }
+
+  navigatePagInicial() {
+    this.router.navigate([''])
+  }
 }

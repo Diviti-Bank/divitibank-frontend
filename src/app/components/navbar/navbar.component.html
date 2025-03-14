@@ -1,6 +1,6 @@
 <div id="general">
     <nav>
-        <img src="assets/images/Logo.svg" alt="" id="logo"/>
+        <img src="assets/images/Logo.svg" alt="" id="logo" (click)="navigatePrincipal()"/>
         <div>
             <input type="checkbox" id="checkbox">
             <img src="assets/images/UnderArrow.svg" alt="" id="underArrow">
@@ -8,8 +8,8 @@
         </div>
     </nav>
     <div id="dropDown">
-        <p> <img src="assets/images/UserSimbol2.svg" alt="">Informações</p>
+        <p (click)="navigateUserInfo()"> <img src="assets/images/UserSimbol2.svg" alt="">Informações</p>
         <p> <img src="assets/images/Settings.svg" alt="">Configurações</p>
-        <p> <img src="assets/images/Exit.svg" alt="">Sair</p>
+        <p (click)="navigatePagInicial()"> <img src="assets/images/Exit.svg" alt="">Sair</p>
     </div>
 </div>

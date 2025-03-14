@@ -42,8 +42,20 @@
               dinheiroPer: transfer.money < 0,
               dinheiroRec: transfer.money > 0
             }"
+
+            *ngIf="verSaldo"
           >
             R$ {{ transfer.money | number:'1.2-2' }}
+          </p>
+          <p
+            [ngClass]="{
+              dinheiroPer: transfer.money < 0,
+              dinheiroRec: transfer.money > 0
+            }"
+
+            *ngIf="!verSaldo"
+          >
+            R$ -------
           </p>
         </div>
       </div>
@@ -71,7 +83,7 @@
                   <img
                     src="assets/images/DivitiCardBlack.svg"
                     alt=""
-                  />
+                  /><p>{{card.name}}</p>
               </div>
           </div>
         </div>

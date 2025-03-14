@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Transfer } from '../../Interfaces/transfer';
-import { Card } from '../../Interfaces/card';
+import { Transfer } from '../../Interfaces/Transfer';
+import { Card } from '../../Interfaces/Card';
 
 @Component({
   selector: 'principal',
@@ -29,6 +29,15 @@ export class PrincipalComponent {
       expireDate: '01/30',
       aprox: 'Sim',
       color: 1,
+    },
+    {
+      name: 'JOAO PEDRO PAULINO',
+      cvc: '969',
+      type: 'Crédito',
+      number: '1111 1111 1111 1111',
+      expireDate: '03/29',
+      aprox: 'Não',
+      color: 2,
     },
   ];
 }
