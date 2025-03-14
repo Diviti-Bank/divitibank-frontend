@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: any) => {
         this.endpoint = event.urlAfterRedirects;
-        if(this.endpoint == '/divitibank' || this.endpoint == '/divitibank-login' || this.endpoint == '/divitibank-cadastro'){
+        if(this.endpoint == '/divitibank' || this.endpoint == '/divitibank-login' || this.endpoint == '/divitibank-logon'){
           this.user = null;
         }
         else{

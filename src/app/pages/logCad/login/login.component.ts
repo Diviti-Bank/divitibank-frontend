@@ -12,6 +12,10 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   navigateCadastro(){
-    this.router.navigate(['divitibank-cadastro']);
+    this.router.navigate(['divitibank-logon']);
+  }
+
+  navigatePrincipal(){
+    this.router.navigate(['divitibank-main']);
   }
 }
