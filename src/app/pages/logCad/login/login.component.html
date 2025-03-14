@@ -1,0 +1,22 @@
+<body>
+    <div class="container">
+        <div class="login-section">
+            <h2>Acesse sua conta</h2>
+            <form>
+                <input type="text" placeholder="CPF">
+                <input type="password" placeholder="Senha">
+                <a href="#" class="forgot-password">Esqueci minha senha</a>
+            </form>
+            <a routerLink="/divitibank-principal"><button class="login-btn">Log in</button></a>
+        </div>
+        <div class="welcome-section">
+            <h2>Bem-Vindo(a) de volta</h2>
+            <img src="assets/images/Logo.svg" class="logo">
+            <div>
+                <p>Não tem uma conta?</p>
+                <br>
+                <button class="register-btn" (click)="navigateCadastro()">Cadastre-se</button>
+            </div>
+        </div>
+    </div>
+</body>

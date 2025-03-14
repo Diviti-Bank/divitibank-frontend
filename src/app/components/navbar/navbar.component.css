@@ -1,0 +1,92 @@
+#general {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 12vh;
+
+    position: static;
+}
+
+nav {
+    background: linear-gradient(to right, #3118DF, #000093);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    div {
+        margin-right: 20px;
+    }
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    width: 50px;
+    margin-left: 20px;
+    fill: #FFFFFF;
+}
+
+#checkbox {
+    transform: translateX(72.5px);
+    width: 75px;
+    height: 40px;
+    opacity: 0;
+}
+
+#dropDown {
+    display: none;
+    margin-top: -220px;
+}
+
+nav:has(#checkbox:checked)+#dropDown {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+
+    position: relative;
+
+    color: #FFFFFF;
+    background-color: #000093;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    border-radius: 20px;
+
+    transform: translateY(220px);
+
+    img{
+        width: 25px;
+
+        margin-right: 10px;
+    }
+
+    p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+#underArrow {
+    width: 20px;
+    margin-right: 8px;
+}
+
+#userSimbol {
+    width: 40px;
+}

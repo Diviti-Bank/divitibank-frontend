@@ -1,0 +1,13 @@
+<section>
+    <div id="saldo">
+        <div>
+            <h2>Saldo em conta:</h2>
+            <h2 *ngIf="verSaldo">R$ {{saldo}}</h2>
+            <h2 *ngIf="!verSaldo">R$ ------------</h2>
+        </div>
+        <div>
+            <img src="assets/images/VisualizationEye.svg" alt="" *ngIf="verSaldo" (click)="verSaldo = !verSaldo">
+            <img src="assets/images/VisibilityOff.svg" alt="" id="img2" *ngIf="!verSaldo" (click)="verSaldo = !verSaldo">
+        </div>
+    </div>
+</section>

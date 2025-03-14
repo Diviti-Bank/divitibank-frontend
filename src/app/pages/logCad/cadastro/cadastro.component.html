@@ -1,0 +1,23 @@
+<body>
+    <div class="container">
+        <div class="welcome-section">
+            <h2>Bem-vindo(a)</h2>
+            <img src="assets/images/Logo.svg" class="logo">
+            <div>
+                <p>Já tem uma conta?</p>
+                <br>
+                <button class="login-btn" (click)="navigateLogin()">Log in</button>
+            </div>
+        </div>
+        <div class="register-section">
+            <h2>Crie sua conta</h2>
+            <form>
+                <input type="text" placeholder="Nome" required>
+                <input type="text" placeholder="CPF" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="password" placeholder="Senha" required>
+            </form>
+            <button type="submit" class="register-btn">Cadastrar-se</button>
+        </div>
+    </div>
+</body>

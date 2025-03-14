@@ -1,0 +1,96 @@
+body {
+    font-family: Montserrat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.container {
+    display: flex;
+    width: 1000px;
+    height: 550px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-section {
+    background: #d9d9d9;
+    width: 60%;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.welcome-section {
+    background: linear-gradient(to bottom, #3118DF, #000093);
+    color: white;
+    width: 40%;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    margin: 20px 0;
+    width: 100px;
+}
+
+
+.login-btn,
+.register-btn {
+    color: #EBEBEB;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: #3118DF;
+}
+
+.register-btn {
+    background-color: #D9D9D9;
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    font-family: Montserrat;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    width: 411px;
+    height: 20px;
+}
+
+button {
+    font-family: Montserrat;
+    width: 265px;
+    height: 45px;
+}
+
+.forgot-password {
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}

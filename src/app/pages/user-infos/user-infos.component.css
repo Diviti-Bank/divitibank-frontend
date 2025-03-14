@@ -1,0 +1,57 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #3118DF, #000093);
+    padding: 20px 10px;
+}
+
+nav a img {
+    height: 30px;
+}
+
+.nav-left {
+    display: flex;
+}
+
+.container {
+    background: linear-gradient(to right, #3118DF, #000093);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 55vh;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column; 
+}
+
+h1 {
+    font-size: 2em; 
+    text-align: center;
+    margin-bottom: 20px;
+    transform: translateY(65px);
+}
+
+.dados {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.dados p {
+    margin-bottom: 50px;
+}
