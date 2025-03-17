@@ -1,0 +1,41 @@
+<section *ngIf="cardOne">
+    <div *ngFor="let card of cartoes | slice : 0 : 1">
+        <nav>
+        </nav>
+        <footer>
+            <div id="dados">
+                <span>
+                    <h2 *ngIf="card.color == 1">DivitiCard Blue {{card.id}}</h2>
+                    <div id="blackLine"></div>
+                </span>
+                <span id="data">
+                    <div id="data1">
+                        <p>Nome: ­ {{card.name}}</p>
+                        <p>Número: ­ {{card.number}}</p>
+                    </div>
+                    <div id="data2">
+                        <p>CVC: ­ {{card.cvc}}</p>
+                        <p>Validade: ­ {{card.expireDate}}</p>
+                    </div>
+                    <div id="data3">
+                        <p>Tipo: ­ {{card.type}}</p>
+                        <p>Aproximação: ­ {{card.aprox}}</p>
+                    </div>
+                </span>
+            </div>
+        </footer>
+    </div>
+</section>
+<section *ngIf="!cardOne">
+    <div *ngFor="let card of cartoes | slice : 1 : 2">
+        <nav>
+        </nav>
+        <footer>
+            <div id="dados">
+                <span>
+                    <h2 *ngIf="card.color == 1">DivitiCard Black {{card.id}}</h2>
+                </span>
+            </div>
+        </footer>
+    </div>
+</section>

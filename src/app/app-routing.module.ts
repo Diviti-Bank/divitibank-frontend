@@ -6,6 +6,7 @@ import { PagInicialComponent } from './pages/pag-inicial/pag-inicial.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { UserInfosComponent } from './pages/user-infos/user-infos.component';
 import { ExtractComponent } from './pages/extract/extract.component';
+import { PagCartoesComponent } from './pages/pag-cartoes/pag-cartoes.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/divitibank', pathMatch: 'full'},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'divitibank-logon', component: CadastroComponent},
   {path: 'divitibank-main', component: PrincipalComponent},
   {path: 'divitibank-userInfo', component: UserInfosComponent},
-  {path: 'divitibank-extract', component: ExtractComponent}
+  {path: 'divitibank-extract', component: ExtractComponent},
+  {path: 'divitibank-cards', component: PagCartoesComponent}
 ];
 
 @NgModule({

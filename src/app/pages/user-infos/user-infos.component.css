@@ -30,7 +30,7 @@ nav a img {
     padding: 20px;
     border-radius: 15px 15px 0 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    height: 55vh;
+    height: 50vh;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -50,8 +50,9 @@ h1 {
 .dados {
     margin-top: 10px;
     font-size: 20px;
+    height: 100%;
 }
 
 .dados p {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }

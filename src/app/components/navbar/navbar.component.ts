@@ -8,18 +8,22 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  isChecked: boolean = false;
 
   constructor(private router: Router) { }
 
   navigateUserInfo(){
+    this.isChecked = false;
     this.router.navigate(['divitibank-userInfo'])
   }
 
   navigatePrincipal() {
+    this.isChecked = false;
     this.router.navigate(['divitibank-main'])
   }
 
   navigatePagInicial() {
+    this.isChecked = false;
     this.router.navigate([''])
   }
 }

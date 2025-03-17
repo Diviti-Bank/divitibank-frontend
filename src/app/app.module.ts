@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { LoginComponent } from './pages/logCad/login/login.component';
 import { CadastroComponent } from './pages/logCad/cadastro/cadastro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { ExtractComponent } from './pages/extract/extract.component';
+import { PagCartoesComponent } from './pages/pag-cartoes/pag-cartoes.component';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { ExtractComponent } from './pages/extract/extract.component';
     LoginComponent,
     CadastroComponent,
     PrincipalComponent,
-    ExtractComponent
+    ExtractComponent,
+    PagCartoesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
