@@ -103,9 +103,10 @@ section {
     #transacao{
         display: flex;
         justify-content: space-around;
-        align-items: end;
+        align-items: center;
 
         width: 100%;
+        height: 100%;
 
         border-top: 3px;
         border-bottom: 3px;
