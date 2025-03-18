@@ -25,6 +25,7 @@ export class PrincipalComponent {
 
   cartoes: Card[] = [
     {
+      id: 1,
       name: 'JOAO PEDRO PAULINO',
       cvc: '696',
       type: 'Débito',
@@ -34,6 +35,7 @@ export class PrincipalComponent {
       color: 1,
     },
     {
+      id: 2,
       name: 'JOAO PEDRO PAULINO',
       cvc: '969',
       type: 'Crédito',
@@ -46,5 +48,9 @@ export class PrincipalComponent {
 
   navigateExtract() {
     this.router.navigate(['divitibank-extract']);
+  }
+
+  navigateCartoes() {
+    this.router.navigate(['divitibank-cards']);
   }
 }

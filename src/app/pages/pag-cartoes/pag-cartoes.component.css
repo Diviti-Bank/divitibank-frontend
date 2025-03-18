@@ -1,0 +1,175 @@
+section{
+    width: 100vw;
+    height: 88vh;
+
+    div{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#twoCard{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 50px;
+
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        cursor: pointer;
+
+        width: 100px;
+        height: 300px;
+        img{
+            width: 500px;
+            height: 100%;
+
+            border: 4px solid white;
+            border-radius: 22px;
+        }
+        #aprox{
+            width: 50px;
+            position: absolute;
+            margin-left: -400px;
+            margin-top: 230px;
+            border: none;
+
+            height: 50px;
+        }
+    }
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dadosBlue{
+    background: linear-gradient(to right, #3118DF, #000093);
+    color: white;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 36vh;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column; 
+
+    span{
+        width: 95%;
+    }
+
+    #data{
+        width: 95%;
+
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        div{
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-direction: column;
+            gap: 25px;
+            
+            height: 50px;
+
+            font-size: 23px;
+        }
+
+        #data1{
+            width: 500px;
+        }
+
+        #data2{
+            width: 350px;
+        }
+
+        #data3{
+            width: 220px;
+        }
+    }
+
+    #blackLine{
+        background-color: black;
+
+        width: 100%;
+        height: 3px;
+    }
+}
+
+#dadosBlack{
+    background: linear-gradient(to right, #000000, #000000, #000000, #2b2b2b);
+    color: white;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 36vh;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column; 
+
+    span{
+        width: 95%;
+    }
+
+    #data{
+        width: 95%;
+
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        div{
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-direction: column;
+            gap: 25px;
+            
+            height: 50px;
+
+            font-size: 23px;
+        }
+
+        #data1{
+            width: 500px;
+        }
+
+        #data2{
+            width: 350px;
+        }
+
+        #data3{
+            width: 220px;
+        }
+    }
+
+    #whiteLine{
+        background-color: white;
+
+        width: 100%;
+        height: 3px;
+    }
+}
