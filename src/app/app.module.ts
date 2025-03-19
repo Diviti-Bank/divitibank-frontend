@@ -12,6 +12,11 @@ import { CadastroComponent } from './pages/logCad/cadastro/cadastro.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { ExtractComponent } from './pages/extract/extract.component';
 import { PagCartoesComponent } from './pages/pag-cartoes/pag-cartoes.component';
+import { KeyPageComponent } from './pages/pags-transferencia/key-page/key-page.component';
+import { InsertAmountComponent } from './pages/pags-transferencia/insert-amount/insert-amount.component';
+import { PaymentMethodComponent } from './pages/pags-transferencia/payment-method/payment-method.component';
+import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
+import { ConfirmTransferComponent } from './components/confirm-transfer/confirm-transfer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,12 @@ import { PagCartoesComponent } from './pages/pag-cartoes/pag-cartoes.component';
     CadastroComponent,
     PrincipalComponent,
     ExtractComponent,
-    PagCartoesComponent
+    PagCartoesComponent,
+    KeyPageComponent,
+    InsertAmountComponent,
+    PaymentMethodComponent,
+    RelatoryComponent,
+    ConfirmTransferComponent
   ],
   imports: [
     BrowserModule,

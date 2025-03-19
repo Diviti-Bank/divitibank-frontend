@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Transfer } from '../../Interfaces/Transfer';
-import { Card } from '../../Interfaces/Card';
+import { Transfer } from '../../interfaces/Transfer';
+import { Card } from '../../interfaces/Card';
 import { Router } from '@angular/router';
 
 @Component({
@@ -52,5 +52,9 @@ export class PrincipalComponent {
 
   navigateCartoes() {
     this.router.navigate(['divitibank-cards']);
+  }
+
+  navigateTransferencia() {
+    this.router.navigate(['divitibank-transfer-keyPage']);
   }
 }

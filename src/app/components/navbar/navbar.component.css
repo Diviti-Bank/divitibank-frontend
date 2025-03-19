@@ -79,7 +79,6 @@ div {
     }
 }
 
-/* Estiliza o dropdown quando o checkbox estiver marcado */
 nav:has(#checkbox:checked) + #dropDown {
     display: flex;
     justify-content: center;

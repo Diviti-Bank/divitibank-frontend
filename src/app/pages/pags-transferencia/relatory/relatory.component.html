@@ -1,0 +1,22 @@
+<section>
+    <h1>Relatório</h1>
+    <div>
+        <p>Autor:  ­ {{autor.name}}</p>
+        <p>CPF:  ­ {{autor.cpf}}</p>
+    </div>
+    <div class="blueLine"></div>
+    <div>
+        <p>Destinatário:  ­ {{destin.name}}</p>
+        <p>CPF:  ­ {{destin.cpf}}</p>
+    </div>
+    <div class="blueLine"></div>
+    <div id="payment">
+        <p>Método de pagamento: </p>
+        <p *ngIf="paymentId == 0">Saldo bancário</p>
+        <p *ngIf="paymentId != 0 && cartao.color == 1">DivitiCard Blue</p>
+        <p *ngIf="paymentId != 0 && cartao.color == 2">DivitiCard Black</p>
+    </div>
+    <p id="amount">R$: {{amount}}</p>
+    <button (click)="hideConfirm == !hideConfirm">Realizar pagamento</button>
+</section>
+<confirm-transfer [hidden]="hideConfirm"></confirm-transfer>

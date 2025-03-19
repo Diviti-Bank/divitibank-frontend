@@ -7,6 +7,10 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { UserInfosComponent } from './pages/user-infos/user-infos.component';
 import { ExtractComponent } from './pages/extract/extract.component';
 import { PagCartoesComponent } from './pages/pag-cartoes/pag-cartoes.component';
+import { KeyPageComponent } from './pages/pags-transferencia/key-page/key-page.component';
+import { InsertAmountComponent } from './pages/pags-transferencia/insert-amount/insert-amount.component';
+import { PaymentMethodComponent } from './pages/pags-transferencia/payment-method/payment-method.component';
+import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/divitibank', pathMatch: 'full'},
@@ -16,7 +20,11 @@ const routes: Routes = [
   {path: 'divitibank-main', component: PrincipalComponent},
   {path: 'divitibank-userInfo', component: UserInfosComponent},
   {path: 'divitibank-extract', component: ExtractComponent},
-  {path: 'divitibank-cards', component: PagCartoesComponent}
+  {path: 'divitibank-cards', component: PagCartoesComponent},
+  {path: 'divitibank-transfer-keyPage', component: KeyPageComponent},
+  {path: 'divitibank-transfer-insertAmount', component: InsertAmountComponent},
+  {path: 'divitibank-transfer-paymentMethod/:amount', component: PaymentMethodComponent},
+  {path: 'divitibank-transfer-relatory/:amount/:paymentId', component: RelatoryComponent}
 ];
 
 @NgModule({

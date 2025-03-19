@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Card } from '../../Interfaces/Card';
+import { Card } from '../../interfaces/Card';
 
 @Component({
   selector: 'app-pag-cartoes',

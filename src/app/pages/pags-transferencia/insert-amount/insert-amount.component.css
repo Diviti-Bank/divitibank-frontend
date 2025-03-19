@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 88vh;
+    background-color: #ebebeb;
+    text-align: center;
+    gap: 20px;
+
+    p{
+        font-size: 20px;
+    }
+}
+
+.destinatario {
+    margin: 20px 0;
+    font-size: 17px;
+}
+
+hr {
+    width: 40%;
+    border: 0;
+    border-top: 2px solid #3118df;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    p{
+        font-weight: bold;
+    }
+
+    span{
+        font-size: 28px;
+        font-weight: 500;
+    }
+}
+
+.valor {
+    text-align: end;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    width: 160px;
+    height: 100%;
+    border: none;
+    color: #000000;
+}
+
+.valor:focus{
+    outline: none;
+}
+
+.input-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 100%;
+    
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+    }
+}
+
+.button {
+    background: #3118df;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 150px;
+    margin-top: 20px;
+}
+
+.button:hover {
+    background: #000093;
+}
