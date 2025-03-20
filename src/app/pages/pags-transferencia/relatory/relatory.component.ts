@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../../interfaces/User';
+import { User } from '../../../Interfaces/User';
 import { Card } from '../../../interfaces/Card';
 import { ActivatedRoute, Router } from '@angular/router';
 
