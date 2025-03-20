@@ -17,6 +17,6 @@
         <p *ngIf="paymentId != 0 && cartao.color == 'black'">DivitiCard Black</p>
     </div>
     <p id="amount">R$: {{amount}}</p>
-    <button (click)="hideConfirm == false">Realizar pagamento</button>
+    <button (click)="hideConfirm = !hideConfirm">Realizar pagamento</button>
 </section>
 <confirm-transfer [hidden]="hideConfirm"></confirm-transfer>
