@@ -13,10 +13,10 @@
     <div id="payment">
         <p>Método de pagamento: </p>
         <p *ngIf="paymentId == 0">Saldo bancário</p>
-        <p *ngIf="paymentId != 0 && cartao.color == 1">DivitiCard Blue</p>
-        <p *ngIf="paymentId != 0 && cartao.color == 2">DivitiCard Black</p>
+        <p *ngIf="paymentId != 0 && cartao.color == 'blue'">DivitiCard Blue</p>
+        <p *ngIf="paymentId != 0 && cartao.color == 'black'">DivitiCard Black</p>
     </div>
     <p id="amount">R$: {{amount}}</p>
-    <button (click)="hideConfirm == !hideConfirm">Realizar pagamento</button>
+    <button (click)="hideConfirm == false">Realizar pagamento</button>
 </section>
 <confirm-transfer [hidden]="hideConfirm"></confirm-transfer>

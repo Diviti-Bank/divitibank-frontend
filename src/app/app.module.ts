@@ -17,6 +17,7 @@ import { InsertAmountComponent } from './pages/pags-transferencia/insert-amount/
 import { PaymentMethodComponent } from './pages/pags-transferencia/payment-method/payment-method.component';
 import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
 import { ConfirmTransferComponent } from './components/confirm-transfer/confirm-transfer.component';
+import { ReceiptComponent } from './pages/receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ConfirmTransferComponent } from './components/confirm-transfer/confirm-
     InsertAmountComponent,
     PaymentMethodComponent,
     RelatoryComponent,
-    ConfirmTransferComponent
+    ConfirmTransferComponent,
+    ReceiptComponent
   ],
   imports: [
     BrowserModule,

@@ -27,14 +27,13 @@ export class RelatoryComponent {
 
   cartao: Card =
     {
-      id: 1,
       name: 'JOAO PEDRO PAULINO',
       cvc: '696',
       type: 'Débito',
       number: '0000 0000 0000 0000',
       expireDate: '01/30',
       aprox: 'Sim',
-      color: 1,
+      color: 'blue',
     }
 
   constructor (private router: Router, private route: ActivatedRoute) {

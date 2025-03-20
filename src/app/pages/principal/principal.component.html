@@ -72,14 +72,14 @@
       <div id="divitiCards">
         <div *ngFor="let card of cartoes | slice:0:2">
           <div id="cartao">
-              <div *ngIf="card.color == 1">
+              <div *ngIf="card.color == 'blue'">
                   <img
                     src="assets/images/DivitiCardBlue.svg"
                     alt=""
                   />
                   <p>{{card.name}}</p>
               </div>
-              <div *ngIf="card.color == 2">
+              <div *ngIf="card.color == 'black'">
                   <img
                     src="assets/images/DivitiCardBlack.svg"
                     alt=""
