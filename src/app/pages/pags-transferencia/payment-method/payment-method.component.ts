@@ -10,7 +10,7 @@ import { Card } from '../../../interfaces/Card';
 })
 export class PaymentMethodComponent {
   amount: string | null;
-  selectedOption!: number;
+  selectedOption!: string;
 
   cartoes: Card[] = [
         {
@@ -37,7 +37,7 @@ export class PaymentMethodComponent {
     this.amount = this.route.snapshot.paramMap.get('amount');
   }
 
-  isSelected(value: number): boolean {
+  isSelected(value: string): boolean {
     return this.selectedOption === value;
   }
 

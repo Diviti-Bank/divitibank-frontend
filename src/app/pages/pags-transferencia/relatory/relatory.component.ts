@@ -13,7 +13,7 @@ export class RelatoryComponent {
   hideConfirm: boolean = true;
 
   amount: string | null;
-  paymentId: number;
+  paymentType: string | null;
 
   autor: User = {
     name: 'João Pedro Paulino do Nascimento',
@@ -38,6 +38,6 @@ export class RelatoryComponent {
 
   constructor (private router: Router, private route: ActivatedRoute) {
     this.amount = this.route.snapshot.paramMap.get('amount');
-    this.paymentId = Number(this.route.snapshot.paramMap.get('paymentId'));
+    this.paymentType = this.route.snapshot.paramMap.get('paymentType');
   }
 }

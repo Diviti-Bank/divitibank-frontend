@@ -1,1 +1,27 @@
-<p>receipt works!</p>
+<section>
+    <span>
+        <nav>
+            <img src="/assets/images/ReceiptCheck.svg" alt="">
+            <h1>Transferência Realizada</h1>
+        </nav>
+        <footer>
+            <p class="dados">Dados do autor:</p>
+            <p>{{autor.name}}</p>
+            <p>{{autor.cpf}}</p>
+            <br>
+            <div class="nineLine"></div>
+            <br>
+            <p class="dados">Dados do destinatário:</p>
+            <p>{{destin.name}}</p>
+            <p>{{destin.cpf}}</p>
+            <br>
+            <div class="nineLine"></div>
+            <br>
+            <p class="dados">Data da transferência:</p>
+            <p>{{date.day}}</p>
+            <p>{{date.hour}}</p>
+            <br>
+            <p style="font-size: 20px;">R$ {{amount}}</p>
+        </footer>
+    </span>
+</section>

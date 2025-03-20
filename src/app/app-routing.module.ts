@@ -25,8 +25,8 @@ const routes: Routes = [
   {path: 'divitibank-transfer-keyPage', component: KeyPageComponent},
   {path: 'divitibank-transfer-insertAmount', component: InsertAmountComponent},
   {path: 'divitibank-transfer-paymentMethod/:amount', component: PaymentMethodComponent},
-  {path: 'divitibank-transfer-relatory/:amount/:paymentColor', component: RelatoryComponent},
-  {path: 'divitibank-transfer-recepit/:amount/:paymentColor', component: ReceiptComponent}
+  {path: 'divitibank-transfer-relatory/:amount/:paymentType', component: RelatoryComponent},
+  {path: 'divitibank-transfer-receipt/:amount/:paymentType', component: ReceiptComponent}
 ];
 
 @NgModule({

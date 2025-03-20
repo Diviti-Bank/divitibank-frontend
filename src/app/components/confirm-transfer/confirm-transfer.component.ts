@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,14 @@ import { Router } from '@angular/router';
   styleUrl: './confirm-transfer.component.css',
 })
 export class ConfirmTransferComponent {
+  @Input() amount!: string | null;
+  @Input() paymentType!: string | null;
+
   constructor(private router: Router) {}
+
+  navigateReceipt(){
+    this.router.navigate(['divitibank-transfer-receipt', this.amount, this.paymentType])
+  }
 
   navigatePrincipal(){
     this.router.navigate(['divitibank-main']);
