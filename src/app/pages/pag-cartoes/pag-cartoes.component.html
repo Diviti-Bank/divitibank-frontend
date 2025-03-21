@@ -4,24 +4,24 @@
             <div id="twoCard">
                 <div *ngIf="cardOne" (click)="cardOne = !cardOne">
                     <div *ngFor="let cardT of cartoes.slice().reverse()">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 1">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 2">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
                         <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
                     </div>
                 </div>
                 <div *ngIf="!cardOne">
                     <div *ngFor="let cardT of cartoes">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 1">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 2">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
                         <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
                     </div>
                 </div>
             </div>
         </nav>
         <footer>
-            <div id="dadosBlue" *ngIf="card.color == 1">
+            <div id="dadosBlue" *ngIf="card.color == 'blue'">
                 <span>
-                    <h2>DivitiCard Blue {{card.id}}:</h2>
+                    <h2>DivitiCard Blue:</h2>
                     <div id="blackLine"></div>
                 </span>
                 <span id="data">
@@ -39,9 +39,9 @@
                     </div>
                 </span>
             </div>
-            <div id="dadosBlack" *ngIf="card.color == 2">
+            <div id="dadosBlack" *ngIf="card.color == 'black'">
                 <span>
-                    <h2>DivitiCard Black {{card.id}}:</h2>
+                    <h2>DivitiCard Black:</h2>
                     <div id="whiteLine"></div>
                 </span>
                 <span id="data">
@@ -69,24 +69,24 @@
             <div id="twoCard" (click)="cardOne = !cardOne">
                 <div *ngIf="cardOne">
                     <div *ngFor="let cardT of cartoes.slice().reverse()">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 1">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 2">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
                         <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
                     </div>
                 </div>
                 <div *ngIf="!cardOne">
                     <div *ngFor="let cardT of cartoes">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 1">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 2">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
                         <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
                     </div>
                 </div>
             </div>
         </nav>
         <footer>
-            <div id="dadosBlue" *ngIf="card.color == 1">
+            <div id="dadosBlue" *ngIf="card.color == 'blue'">
                 <span>
-                    <h2>DivitiCard Blue {{card.id}}:</h2>
+                    <h2>DivitiCard Blue:</h2>
                     <div id="blackLine"></div>
                 </span>
                 <span id="data">
@@ -104,9 +104,9 @@
                     </div>
                 </span>
             </div>
-            <div id="dadosBlack" *ngIf="card.color == 2">
+            <div id="dadosBlack" *ngIf="card.color == 'black'">
                 <span>
-                    <h2>DivitiCard Black {{card.id}}:</h2>
+                    <h2>DivitiCard Black:</h2>
                     <div id="whiteLine"></div>
                 </span>
                 <span id="data">

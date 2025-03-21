@@ -1,5 +1,5 @@
 import { Component, importProvidersFrom } from '@angular/core';
-import { Transfer } from '../../Interfaces/Transfer';
+import { Transfer } from '../../interfaces/Transfer';
 
 @Component({
   selector: 'app-extract',

@@ -54,6 +54,7 @@ body {
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 15px
 }
 
 .login-btn {
@@ -79,6 +80,10 @@ input {
 
     width: 411px;
     height: 20px;
+}
+
+input:focus{
+    outline: none;
 }
 
 button {

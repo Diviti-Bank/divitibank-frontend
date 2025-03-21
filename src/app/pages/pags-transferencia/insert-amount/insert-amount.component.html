@@ -1,0 +1,21 @@
+<body>
+  <p class="destinatario">Destinatário: João Pedro Carvalho de Jesus</p>
+  <hr />
+  <section class="input-container">
+    <p>Digite a quantidade a ser transferida</p>
+    <div class="input-wrapper">
+      <span>R$:</span>
+      <input
+        type="text"
+        [value]="formattedValue"
+        class="valor"
+        placeholder="_,__"
+        maxlength="8"
+        (input)="formatInput($event)"
+        (keydown)="preventInvalidDelete($event)"
+        #inputRef
+      />
+    </div>
+  </section>
+  <button class="button" (click)="navigatePaymentMethod()">Prosseguir</button>
+</body>

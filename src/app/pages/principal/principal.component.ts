@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Transfer } from '../../Interfaces/Transfer';
-import { Card } from '../../Interfaces/Card';
+import { Transfer } from '../../interfaces/Transfer';
+import { Card } from '../../interfaces/Card';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,24 +25,22 @@ export class PrincipalComponent {
 
   cartoes: Card[] = [
     {
-      id: 1,
       name: 'JOAO PEDRO PAULINO',
       cvc: '696',
       type: 'Débito',
       number: '0000 0000 0000 0000',
       expireDate: '01/30',
       aprox: 'Sim',
-      color: 1,
+      color: 'blue',
     },
     {
-      id: 2,
       name: 'JOAO PEDRO PAULINO',
       cvc: '969',
       type: 'Crédito',
       number: '1111 1111 1111 1111',
       expireDate: '03/29',
       aprox: 'Não',
-      color: 2,
+      color: 'black',
     },
   ];
 
@@ -52,5 +50,9 @@ export class PrincipalComponent {
 
   navigateCartoes() {
     this.router.navigate(['divitibank-cards']);
+  }
+
+  navigateTransferencia() {
+    this.router.navigate(['divitibank-transfer-keyPage']);
   }
 }
