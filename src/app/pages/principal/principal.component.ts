@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Transfer } from '../../interfaces/Transfer';
-import { Card } from '../../interfaces/Card';
+import { Transfer } from '../../Interfaces/Transfer';
+import { Card } from '../../Interfaces/Card';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,33 +14,41 @@ export class PrincipalComponent {
 
   verSaldo: boolean = false;
   saldo: number = 6158.89;
+
+  data1: Date = new Date(2025, 4, 14)
+  data2: Date = new Date(2025, 1, 2)
+
   extrato: Transfer[] = [
-    { type: 'Transferência efetuada', user: 'Loja do Zé', money: -19.6 },
-    { type: 'Transferência recebida', user: 'Rafael Pither', money: 40.0 },
-    { type: 'Transferência efetuada', user: 'Loja do Zé', money: -19.6 },
-    { type: 'Transferência recebida', user: 'Rafael Pither', money: 40.0 },
-    { type: 'Transferência efetuada', user: 'Loja do Zé', money: -19.6 },
-    { type: 'Transferência recebida', user: 'Rafael Pither', money: 40.0 },
+    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
+    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
+    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
+    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
+    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
+    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
   ];
 
   cartoes: Card[] = [
     {
-      name: 'JOAO PEDRO PAULINO',
-      cvc: '696',
-      type: 'Débito',
-      number: '0000 0000 0000 0000',
-      expireDate: '01/30',
-      aprox: 'Sim',
-      color: 'blue',
+      status: 'ativo',
+      credito: 0,
+      tipo_cartao: 'Débito',
+      cor_cartao: 'blue',
+      aproximacao: true,
+      cvc: 0o34,
+      nome_cartao: 'JOÃO PEDRO PAULINO',
+      numero_cartao: '0000 0000 0000 0000',
+      validade: '01/30'
     },
     {
-      name: 'JOAO PEDRO PAULINO',
-      cvc: '969',
-      type: 'Crédito',
-      number: '1111 1111 1111 1111',
-      expireDate: '03/29',
-      aprox: 'Não',
-      color: 'black',
+      status: 'ativo',
+      credito: 50,
+      tipo_cartao: 'Crédito',
+      cor_cartao: 'black',
+      aproximacao: false,
+      cvc: 342,
+      nome_cartao: 'JOÃO PEDRO PAULINO',
+      numero_cartao: '1111 1111 1111 1111',
+      validade: '02/29'
     },
   ];
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Card } from '../../interfaces/Card';
+import { Card } from '../../Interfaces/Card';
 
 @Component({
   selector: 'app-pag-cartoes',
@@ -12,22 +12,26 @@ export class PagCartoesComponent {
 
   cartoes: Card[] = [
       {
-        name: 'JOAO PEDRO PAULINO',
-        cvc: '696',
-        type: 'Débito',
-        number: '0000 0000 0000 0000',
-        expireDate: '01/30',
-        aprox: 'Sim',
-        color: 'blue',
+        status: 'ativo',
+        credito: 0,
+        tipo_cartao: 'Débito',
+        cor_cartao: 'blue',
+        aproximacao: true,
+        cvc: 0o34,
+        nome_cartao: 'JOÃO PEDRO PAULINO',
+        numero_cartao: '0000 0000 0000 0000',
+        validade: '01/30'
       },
       {
-        name: 'JOAO PEDRO PAULINO',
-        cvc: '969',
-        type: 'Crédito',
-        number: '1111 1111 1111 1111',
-        expireDate: '03/29',
-        aprox: 'Não',
-        color: 'black',
+        status: 'ativo',
+        credito: 50,
+        tipo_cartao: 'Crédito',
+        cor_cartao: 'black',
+        aproximacao: false,
+        cvc: 342,
+        nome_cartao: 'JOÃO PEDRO PAULINO',
+        numero_cartao: '1111 1111 1111 1111',
+        validade: '02/29'
       },
     ];
 }

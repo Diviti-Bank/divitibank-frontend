@@ -1,9 +1,11 @@
 export interface Card {
-    name: string;
-    cvc: string;
-    type: string;
-    number: string;
-    expireDate: string;
-    aprox: string;
-    color: string;
+    status: string,
+    credito: number,
+    tipo_cartao: string,
+    cor_cartao: string,
+    aproximacao: boolean;
+    cvc: number,
+    nome_cartao: string,
+    numero_cartao: string,
+    validade: string
 }

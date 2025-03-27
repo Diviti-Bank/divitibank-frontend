@@ -1,5 +1,6 @@
 export interface Transfer {
-    type: string,
-    user: string,
-    money: number
+    tipo: string,
+    origem: string,
+    quantia: number,
+    data: Date
 }

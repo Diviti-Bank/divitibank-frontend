@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { User } from '../../interfaces/User';
 
 @Component({
   selector: 'app-receipt',
@@ -12,15 +11,11 @@ export class ReceiptComponent {
   amount!: string | null;
   paymentType!: string | null;
 
-  autor: User = {
-    name: 'João Pedro Paulino do Nascimento',
-    cpf: '11111111111',
-  };
+  name1: string = 'João Pedro Paulino do Nascimento';
+    cpf1: string = '00000000000'
 
-  destin: User = {
-    name: 'João Pedro Carvalho de Jesus',
-    cpf: '00000000000',
-  };
+    name2: string = 'João Pedro Carvalho de Jesus';
+    cpf2: string = '11111111111'
 
   date = {
     day: "26/02/2025",

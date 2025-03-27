@@ -4,58 +4,60 @@
             <div id="twoCard">
                 <div *ngIf="cardOne" (click)="cardOne = !cardOne">
                     <div *ngFor="let cardT of cartoes.slice().reverse()">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
+                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
                     </div>
                 </div>
                 <div *ngIf="!cardOne">
                     <div *ngFor="let cardT of cartoes">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
+                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
                     </div>
                 </div>
             </div>
         </nav>
         <footer>
-            <div id="dadosBlue" *ngIf="card.color == 'blue'">
+            <div id="dadosBlue" *ngIf="card.cor_cartao == 'blue'">
                 <span>
                     <h2>DivitiCard Blue:</h2>
                     <div id="blackLine"></div>
                 </span>
                 <span id="data">
                     <div id="data1">
-                        <p>Nome: ­ {{card.name}}</p>
-                        <p>Número: ­ {{card.number}}</p>
+                        <p>Nome: ­ {{card.nome_cartao}}</p>
+                        <p>Número: ­ {{card.numero_cartao}}</p>
                     </div>
                     <div id="data2">
                         <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.expireDate}}</p>
+                        <p>Validade: ­ {{card.validade}}</p>
                     </div>
                     <div id="data3">
-                        <p>Tipo: ­ {{card.type}}</p>
-                        <p>Aproximação: ­ {{card.aprox}}</p>
+                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
+                        <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
+                        <p *ngIf="card.aproximacao ==false">Aproximação: ­ Não</p>
                     </div>
                 </span>
             </div>
-            <div id="dadosBlack" *ngIf="card.color == 'black'">
+            <div id="dadosBlack" *ngIf="card.cor_cartao == 'black'">
                 <span>
                     <h2>DivitiCard Black:</h2>
                     <div id="whiteLine"></div>
                 </span>
                 <span id="data">
                     <div id="data1">
-                        <p>Nome: ­ {{card.name}}</p>
-                        <p>Número: ­ {{card.number}}</p>
+                        <p>Nome: ­ {{card.nome_cartao}}</p>
+                        <p>Número: ­ {{card.numero_cartao}}</p>
                     </div>
                     <div id="data2">
                         <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.expireDate}}</p>
+                        <p>Validade: ­ {{card.validade}}</p>
                     </div>
                     <div id="data3">
-                        <p>Tipo: ­ {{card.type}}</p>
-                        <p>Aproximação: ­ {{card.aprox}}</p>
+                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
+                        <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
+                        <p *ngIf="card.aproximacao ==false">Aproximação: ­ Não</p>
                     </div>
                 </span>
             </div>
@@ -69,58 +71,58 @@
             <div id="twoCard" (click)="cardOne = !cardOne">
                 <div *ngIf="cardOne">
                     <div *ngFor="let cardT of cartoes.slice().reverse()">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
+                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
                     </div>
                 </div>
                 <div *ngIf="!cardOne">
                     <div *ngFor="let cardT of cartoes">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.color == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.color == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aprox == 'Sim'">
+                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
+                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
+                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
                     </div>
                 </div>
             </div>
         </nav>
         <footer>
-            <div id="dadosBlue" *ngIf="card.color == 'blue'">
+            <div id="dadosBlue" *ngIf="card.cor_cartao == 'blue'">
                 <span>
                     <h2>DivitiCard Blue:</h2>
                     <div id="blackLine"></div>
                 </span>
                 <span id="data">
                     <div id="data1">
-                        <p>Nome: ­ {{card.name}}</p>
-                        <p>Número: ­ {{card.number}}</p>
+                        <p>Nome: ­ {{card.nome_cartao}}</p>
+                        <p>Número: ­ {{card.numero_cartao}}</p>
                     </div>
                     <div id="data2">
                         <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.expireDate}}</p>
+                        <p>Validade: ­ {{card.validade}}</p>
                     </div>
                     <div id="data3">
-                        <p>Tipo: ­ {{card.type}}</p>
-                        <p>Aproximação: ­ {{card.aprox}}</p>
+                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
+                        <p>Aproximação: ­ {{card.aproximacao}}</p>
                     </div>
                 </span>
             </div>
-            <div id="dadosBlack" *ngIf="card.color == 'black'">
+            <div id="dadosBlack" *ngIf="card.cor_cartao == 'black'">
                 <span>
                     <h2>DivitiCard Black:</h2>
                     <div id="whiteLine"></div>
                 </span>
                 <span id="data">
                     <div id="data1">
-                        <p>Nome: ­ {{card.name}}</p>
-                        <p>Número: ­ {{card.number}}</p>
+                        <p>Nome: ­ {{card.nome_cartao}}</p>
+                        <p>Número: ­ {{card.numero_cartao}}</p>
                     </div>
                     <div id="data2">
                         <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.expireDate}}</p>
+                        <p>Validade: ­ {{card.validade}}</p>
                     </div>
                     <div id="data3">
-                        <p>Tipo: ­ {{card.type}}</p>
-                        <p>Aproximação: ­ {{card.aprox}}</p>
+                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
+                        <p>Aproximação: ­ {{card.aproximacao}}</p>
                     </div>
                 </span>
             </div>

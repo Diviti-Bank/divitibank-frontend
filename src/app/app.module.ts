@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { PaymentMethodComponent } from './pages/pags-transferencia/payment-metho
 import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
 import { ConfirmTransferComponent } from './components/confirm-transfer/confirm-transfer.component';
 import { ReceiptComponent } from './pages/receipt/receipt.component';
+import { CadastroErrorComponent } from './error/cadastro-error/cadastro-error.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +37,14 @@ import { ReceiptComponent } from './pages/receipt/receipt.component';
     PaymentMethodComponent,
     RelatoryComponent,
     ConfirmTransferComponent,
-    ReceiptComponent
+    ReceiptComponent,
+    CadastroErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

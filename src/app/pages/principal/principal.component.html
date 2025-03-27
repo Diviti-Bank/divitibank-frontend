@@ -33,24 +33,24 @@
           <div id="dadosSemDinheiro">
             <img src="assets/images/Money.svg" alt="" />
             <div>
-              <h2>{{ transfer.type }}</h2>
-              <p>{{ transfer.user }}</p>
+              <h2>{{ transfer.tipo }}</h2>
+              <p>{{ transfer.origem }}</p>
             </div>
           </div>
           <p
             [ngClass]="{
-              dinheiroPer: transfer.money < 0,
-              dinheiroRec: transfer.money > 0
+              dinheiroPer: transfer.quantia < 0,
+              dinheiroRec: transfer.quantia > 0
             }"
 
             *ngIf="verSaldo"
           >
-            R$ {{ transfer.money | number:'1.2-2' }}
+            R$ {{ transfer.quantia | number:'1.2-2' }}
           </p>
           <p
             [ngClass]="{
-              dinheiroPer: transfer.money < 0,
-              dinheiroRec: transfer.money > 0
+              dinheiroPer: transfer.quantia < 0,
+              dinheiroRec: transfer.quantia > 0
             }"
 
             *ngIf="!verSaldo"
@@ -72,18 +72,18 @@
       <div id="divitiCards">
         <div *ngFor="let card of cartoes | slice:0:2">
           <div id="cartao">
-              <div *ngIf="card.color == 'blue'">
+              <div *ngIf="card.cor_cartao == 'blue'">
                   <img
                     src="assets/images/DivitiCardBlue.svg"
                     alt=""
                   />
-                  <p>{{card.name}}</p>
+                  <p>{{card.nome_cartao}}</p>
               </div>
-              <div *ngIf="card.color == 'black'">
+              <div *ngIf="card.cor_cartao == 'black'">
                   <img
                     src="assets/images/DivitiCardBlack.svg"
                     alt=""
-                  /><p>{{card.name}}</p>
+                  /><p>{{card.nome_cartao}}</p>
               </div>
           </div>
         </div>

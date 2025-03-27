@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../../interfaces/User';
-import { Card } from '../../../interfaces/Card';
+import { Card } from '../../../Interfaces/Card';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -15,28 +14,25 @@ export class RelatoryComponent {
   amount: string | null;
   paymentType: string | null;
 
-  autor: User = {
-    name: 'João Pedro Paulino do Nascimento',
-    cpf: '11111111111',
+  name1: string = 'João Pedro Paulino do Nascimento';
+  cpf1: string = '00000000000';
+
+  name2: string = 'João Pedro Carvalho de Jesus';
+  cpf2: string = '11111111111';
+
+  cartao: Card = {
+    status: 'ativo',
+    credito: 0,
+    tipo_cartao: 'Débito',
+    cor_cartao: 'blue',
+    aproximacao: true,
+    cvc: 0o34,
+    nome_cartao: 'JOÃO PEDRO PAULINO',
+    numero_cartao: '0000 0000 0000 0000',
+    validade: '01/30',
   };
 
-  destin: User = {
-    name: 'João Pedro Carvalho de Jesus',
-    cpf: '00000000000',
-  };
-
-  cartao: Card =
-    {
-      name: 'JOAO PEDRO PAULINO',
-      cvc: '696',
-      type: 'Débito',
-      number: '0000 0000 0000 0000',
-      expireDate: '01/30',
-      aprox: 'Sim',
-      color: 'blue',
-    }
-
-  constructor (private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.amount = this.route.snapshot.paramMap.get('amount');
     this.paymentType = this.route.snapshot.paramMap.get('paymentType');
   }
