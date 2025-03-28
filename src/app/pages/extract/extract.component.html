@@ -45,7 +45,7 @@
       </div>
     </div>
     <div style="width: 100%" *ngIf="extrato.length > 0">
-      <div *ngFor="let transfer of extrato.slice(0, 5).reverse()" id="transacao">
+      <div *ngFor="let transfer of extrato.slice().reverse()" id="transacao">
         <div style="
         width: 100%;
         display: flex;
