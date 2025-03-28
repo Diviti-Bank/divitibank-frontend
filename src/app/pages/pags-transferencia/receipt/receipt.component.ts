@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TransferService } from '../../services/transfer/transfer.service';
-import { Receipt } from '../../Interfaces/Receipt';
-import { User } from '../../Interfaces/User';
-import { LoginService } from '../../services/logCad/login/login.service';
+import { TransferService } from '../../../services/transfer/transfer.service';
+import { User } from '../../../Interfaces/User';
+import { LoginService } from '../../../services/logCad/login/login.service';
 
 @Component({
   selector: 'app-receipt',

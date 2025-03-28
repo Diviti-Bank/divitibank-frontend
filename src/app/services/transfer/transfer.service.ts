@@ -15,8 +15,6 @@ export class TransferService {
 
   private destino = new BehaviorSubject<any>(null);
 
-  private receipt = new BehaviorSubject<any>(null);
-
   private apiTransferUrl =
     'https://divitibank-backend.onrender.com/contas/transferir';
 
@@ -29,10 +27,6 @@ export class TransferService {
     return this.http.put<any>(
       `${this.apiTransferUrl}/${cpfRemetente}/${cpfDestino}/${dinheiro}/${metodo_pagamento}`, null
     );
-  }
-
-  getReceipt(cpfRemetente: string, cpfDestino: string, dinheiro: number): Observable<Receipt> {
-    return this.http.get<Receipt>(`${this.apiReceiptUrl}/${cpfRemetente}/${cpfDestino}/${dinheiro}`);
   }
 
   setCpfRemetente(novoCpf: any) {
@@ -55,10 +49,6 @@ export class TransferService {
     this.destino.next(novoDestino);
   }
 
-  setReceipt(novoReceipt: any){
-    this.receipt.next(novoReceipt);
-  }
-
   getCpfRemetente() {
     return this.cpfRemetente.asObservable();
   }
@@ -79,7 +69,4 @@ export class TransferService {
     return this.destino.asObservable();
   }
 
-  getReceiptObservable() {
-    return this.receipt.asObservable();
-  }
 }

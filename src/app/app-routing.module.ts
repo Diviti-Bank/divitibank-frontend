@@ -11,7 +11,7 @@ import { KeyPageComponent } from './pages/pags-transferencia/key-page/key-page.c
 import { InsertAmountComponent } from './pages/pags-transferencia/insert-amount/insert-amount.component';
 import { PaymentMethodComponent } from './pages/pags-transferencia/payment-method/payment-method.component';
 import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
-import { ReceiptComponent } from './pages/receipt/receipt.component';
+import { ReceiptComponent } from './pages/pags-transferencia/receipt/receipt.component';
 import { CriarCartaoComponent } from './pages/criar-cartao/criar-cartao.component';
 import { CadastroSucessoComponent } from './success/cadastro-sucesso/cadastro-sucesso.component';
 import { CartaoSucessoComponent } from './success/cartao-sucesso/cartao-sucesso.component';
