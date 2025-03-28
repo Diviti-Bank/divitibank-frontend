@@ -1,3 +1,20 @@
+<nav
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding: 10px;
+      height: 7.65vh;
+    "
+  >
+    <img
+      src="assets/images/Return.svg"
+      alt=""
+      (click)="navigateInsertKey()"
+      id="voltarButton"
+    />
+</nav>
 <body>
   <p class="destinatario">Destinatário: João Pedro Carvalho de Jesus</p>
   <hr />
@@ -17,5 +34,5 @@
       />
     </div>
   </section>
-  <button class="button" (click)="navigatePaymentMethod()">Prosseguir</button>
+  <button (click)="navigatePaymentMethod()">Prosseguir</button>
 </body>

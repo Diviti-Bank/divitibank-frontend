@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/logCad/login.service';
+import { LoginService } from '../../services/logCad/login/login.service';
 
 @Component({
   selector: 'navbar',
@@ -24,8 +24,6 @@ export class NavbarComponent {
   }
 
   navigatePagInicial() {
-    this.isChecked = false;
-    this.loginService.setUsuario(null);
-    this.router.navigate([''])
+    window.location.reload();
   }
 }

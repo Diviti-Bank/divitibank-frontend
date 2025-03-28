@@ -1,3 +1,6 @@
+<nav style="width: 100%; display: flex; justify-content: start; align-items: center; padding: 10px;">
+  <img src="assets/images/Return.svg" alt="" (click)="navigatePrincipal()" id="voltarButton">
+</nav>
 <section>
   <div
     style="
@@ -21,7 +24,7 @@
       >
         <div>
           <p>Saldo em conta:</p>
-          <p *ngIf="verSaldo">R$ {{ saldo }}</p>
+          <p *ngIf="verSaldo">R$ {{ saldo | number : "1.2-2" }}</p>
           <p *ngIf="!verSaldo">R$ ------------</p>
         </div>
         <div>
@@ -41,8 +44,8 @@
         </div>
       </div>
     </div>
-    <div style="width: 100%">
-      <div *ngFor="let transfer of extrato" id="transacao">
+    <div style="width: 100%" *ngIf="extrato.length > 0">
+      <div *ngFor="let transfer of extrato.slice(0, 5).reverse()" id="transacao">
         <div style="
         width: 100%;
         display: flex;
@@ -50,11 +53,13 @@
         align-items: center;
         padding-left: 4vw;
         padding-right: 4vw;
+        height: 100px;
       ">
           <div id="dadosSemDinheiro">
             <img src="assets/images/Money.svg" alt="" />
             <div>
-              <h2>{{ transfer.tipo }}</h2>
+              <h2 *ngIf="transfer.quantia < 0">Transferência efetuada</h2>
+              <h2 *ngIf="transfer.quantia > 0">Transferência recebida</h2>
               <p>{{ transfer.origem }}</p>
             </div>
           </div>
@@ -78,6 +83,9 @@
           </p>
         </div>
       </div>
+    </div>
+    <div style="width: 100%; text-align: center; padding-top: 15px; padding-bottom: 15px;" *ngIf="extrato.length == 0">
+      <h1>Você ainda não tem nenhuma operação financeira.</h1>
     </div>
     <span id="corrigirRadius">
 

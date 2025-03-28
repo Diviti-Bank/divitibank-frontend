@@ -1,131 +1,195 @@
-<section *ngIf="cardOne">
-    <div *ngFor="let card of cartoes.slice(0, 1)">
-        <nav>
-            <div id="twoCard">
-                <div *ngIf="cardOne" (click)="cardOne = !cardOne">
-                    <div *ngFor="let cardT of cartoes.slice().reverse()">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
-                    </div>
-                </div>
-                <div *ngIf="!cardOne">
-                    <div *ngFor="let cardT of cartoes">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <footer>
-            <div id="dadosBlue" *ngIf="card.cor_cartao == 'blue'">
-                <span>
-                    <h2>DivitiCard Blue:</h2>
-                    <div id="blackLine"></div>
-                </span>
-                <span id="data">
-                    <div id="data1">
-                        <p>Nome: ­ {{card.nome_cartao}}</p>
-                        <p>Número: ­ {{card.numero_cartao}}</p>
-                    </div>
-                    <div id="data2">
-                        <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.validade}}</p>
-                    </div>
-                    <div id="data3">
-                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
-                        <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
-                        <p *ngIf="card.aproximacao ==false">Aproximação: ­ Não</p>
-                    </div>
-                </span>
-            </div>
-            <div id="dadosBlack" *ngIf="card.cor_cartao == 'black'">
-                <span>
-                    <h2>DivitiCard Black:</h2>
-                    <div id="whiteLine"></div>
-                </span>
-                <span id="data">
-                    <div id="data1">
-                        <p>Nome: ­ {{card.nome_cartao}}</p>
-                        <p>Número: ­ {{card.numero_cartao}}</p>
-                    </div>
-                    <div id="data2">
-                        <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.validade}}</p>
-                    </div>
-                    <div id="data3">
-                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
-                        <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
-                        <p *ngIf="card.aproximacao ==false">Aproximação: ­ Não</p>
-                    </div>
-                </span>
-            </div>
-        </footer>
-    </div>
+<div style="width: 50%; position: absolute; padding: 15px">
+  <img src="assets/images/Return.svg" alt="" style="cursor: pointer;" (click)="navigatePrincipal()"/>
+</div>
+<section *ngIf="cartoes.length > 0 && cardOne">
+  <div *ngFor="let card of cartoes.slice(0, 1)">
+    <nav style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <div id="twoCard">
+        <div *ngIf="cardOne" (click)="cardOne = !cardOne">
+          <div *ngFor="let cardT of cartoes.slice().reverse()">
+            <img
+              src="/assets/images/DivitiCardBlue.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'blue'"
+            />
+            <img
+              src="/assets/images/DivitiCardBlack.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'black'"
+            />
+            <img
+              src="/assets/images/Aprox.svg"
+              alt=""
+              id="aprox"
+              *ngIf="cardT.aproximacao == true"
+            />
+          </div>
+        </div>
+        <div *ngIf="!cardOne">
+          <div *ngFor="let cardT of cartoes">
+            <img
+              src="/assets/images/DivitiCardBlue.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'blue'"
+            />
+            <img
+              src="/assets/images/DivitiCardBlack.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'black'"
+            />
+            <img
+              src="/assets/images/Aprox.svg"
+              alt=""
+              id="aprox"
+              *ngIf="cardT.aproximacao == true"
+            />
+          </div>
+        </div>
+      </div>
+      <button (click)="navigateCriarCartao()" *ngIf="cartoes.length == 1">Criar cartão</button>
+    </nav>
+    <footer>
+      <div id="dadosBlue" *ngIf="card.cor_cartao == 'blue'">
+        <span>
+          <h2>DivitiCard Blue:</h2>
+          <div id="blackLine"></div>
+        </span>
+        <span id="data">
+          <div id="data1">
+            <p>Nome: ­ {{ card.nome_cartao }}</p>
+            <p>Número: ­ {{ card.numero_cartao }}</p>
+          </div>
+          <div id="data2">
+            <p>CVC: ­ {{ card.cvc }}</p>
+            <p>Validade: ­ {{ card.validade }}</p>
+          </div>
+          <div id="data3">
+            <p>Tipo: ­ {{ card.tipo_cartao }}</p>
+            <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
+            <p *ngIf="card.aproximacao == false">Aproximação: ­ Não</p>
+          </div>
+        </span>
+      </div>
+      <div id="dadosBlack" *ngIf="card.cor_cartao == 'black'">
+        <span>
+          <h2>DivitiCard Black:</h2>
+          <div id="whiteLine"></div>
+        </span>
+        <span id="data">
+          <div id="data1">
+            <p>Nome: ­ {{ card.nome_cartao }}</p>
+            <p>Número: ­ {{ card.numero_cartao }}</p>
+          </div>
+          <div id="data2">
+            <p>CVC: ­ {{ card.cvc }}</p>
+            <p>Validade: ­ {{ card.validade }}</p>
+          </div>
+          <div id="data3">
+            <p>Tipo: ­ {{ card.tipo_cartao }}</p>
+            <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
+            <p *ngIf="card.aproximacao == false">Aproximação: ­ Não</p>
+          </div>
+        </span>
+      </div>
+    </footer>
+  </div>
 </section>
 
-<section *ngIf="!cardOne">
-    <div *ngFor="let card of cartoes.slice(1, 2)">
-        <nav>
-            <div id="twoCard" (click)="cardOne = !cardOne">
-                <div *ngIf="cardOne">
-                    <div *ngFor="let cardT of cartoes.slice().reverse()">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
-                    </div>
-                </div>
-                <div *ngIf="!cardOne">
-                    <div *ngFor="let cardT of cartoes">
-                        <img src="/assets/images/DivitiCardBlue.svg" alt="" *ngIf="cardT.cor_cartao == 'blue'">
-                        <img src="/assets/images/DivitiCardBlack.svg" alt="" *ngIf="cardT.cor_cartao == 'black'">
-                        <img src="/assets/images/Aprox.svg" alt="" id="aprox" *ngIf="cardT.aproximacao == true">
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <footer>
-            <div id="dadosBlue" *ngIf="card.cor_cartao == 'blue'">
-                <span>
-                    <h2>DivitiCard Blue:</h2>
-                    <div id="blackLine"></div>
-                </span>
-                <span id="data">
-                    <div id="data1">
-                        <p>Nome: ­ {{card.nome_cartao}}</p>
-                        <p>Número: ­ {{card.numero_cartao}}</p>
-                    </div>
-                    <div id="data2">
-                        <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.validade}}</p>
-                    </div>
-                    <div id="data3">
-                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
-                        <p>Aproximação: ­ {{card.aproximacao}}</p>
-                    </div>
-                </span>
-            </div>
-            <div id="dadosBlack" *ngIf="card.cor_cartao == 'black'">
-                <span>
-                    <h2>DivitiCard Black:</h2>
-                    <div id="whiteLine"></div>
-                </span>
-                <span id="data">
-                    <div id="data1">
-                        <p>Nome: ­ {{card.nome_cartao}}</p>
-                        <p>Número: ­ {{card.numero_cartao}}</p>
-                    </div>
-                    <div id="data2">
-                        <p>CVC: ­ {{card.cvc}}</p>
-                        <p>Validade: ­ {{card.validade}}</p>
-                    </div>
-                    <div id="data3">
-                        <p>Tipo: ­ {{card.tipo_cartao}}</p>
-                        <p>Aproximação: ­ {{card.aproximacao}}</p>
-                    </div>
-                </span>
-            </div>
-        </footer>
-    </div>
+<section *ngIf="cartoes.length > 0 && !cardOne">
+  <div *ngFor="let card of cartoes.slice(1, 2)">
+    <nav style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <div id="twoCard" (click)="cardOne = !cardOne">
+        <div *ngIf="cardOne">
+          <div *ngFor="let cardT of cartoes.slice().reverse()">
+            <img
+              src="/assets/images/DivitiCardBlue.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'blue'"
+            />
+            <img
+              src="/assets/images/DivitiCardBlack.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'black'"
+            />
+            <img
+              src="/assets/images/Aprox.svg"
+              alt=""
+              id="aprox"
+              *ngIf="cardT.aproximacao == true"
+            />
+          </div>
+        </div>
+        <div *ngIf="!cardOne">
+          <div *ngFor="let cardT of cartoes">
+            <img
+              src="/assets/images/DivitiCardBlue.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'blue'"
+            />
+            <img
+              src="/assets/images/DivitiCardBlack.svg"
+              alt=""
+              *ngIf="cardT.cor_cartao == 'black'"
+            />
+            <img
+              src="/assets/images/Aprox.svg"
+              alt=""
+              id="aprox"
+              *ngIf="cardT.aproximacao == true"
+            />
+          </div>
+        </div>
+      </div>
+      <button (click)="navigateCriarCartao()" *ngIf="cartoes.length == 1">Criar cartão</button>
+    </nav>
+    <footer>
+      <div id="dadosBlue" *ngIf="card.cor_cartao == 'blue'">
+        <span>
+          <h2>DivitiCard Blue:</h2>
+          <div id="blackLine"></div>
+        </span>
+        <span id="data">
+          <div id="data1">
+            <p>Nome: ­ {{ card.nome_cartao }}</p>
+            <p>Número: ­ {{ card.numero_cartao }}</p>
+          </div>
+          <div id="data2">
+            <p>CVC: ­ {{ card.cvc }}</p>
+            <p>Validade: ­ {{ card.validade }}</p>
+          </div>
+          <div id="data3">
+            <p>Tipo: ­ {{ card.tipo_cartao }}</p>
+            <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
+            <p *ngIf="card.aproximacao == false">Aproximação: ­ Não</p>
+          </div>
+        </span>
+      </div>
+      <div id="dadosBlack" *ngIf="card.cor_cartao == 'black'">
+        <span>
+          <h2>DivitiCard Black:</h2>
+          <div id="whiteLine"></div>
+        </span>
+        <span id="data">
+          <div id="data1">
+            <p>Nome: ­ {{ card.nome_cartao }}</p>
+            <p>Número: ­ {{ card.numero_cartao }}</p>
+          </div>
+          <div id="data2">
+            <p>CVC: ­ {{ card.cvc }}</p>
+            <p>Validade: ­ {{ card.validade }}</p>
+          </div>
+          <div id="data3">
+            <p>Tipo: ­ {{ card.tipo_cartao }}</p>
+            <p *ngIf="card.aproximacao == true">Aproximação: ­ Sim</p>
+            <p *ngIf="card.aproximacao == false">Aproximação: ­ Não</p>
+          </div>
+        </span>
+      </div>
+    </footer>
+  </div>
+</section>
+<section *ngIf="cartoes.length == 0">
+  <h1>Você não tem nenhum DivitiCard.</h1>
+  <button (click)="navigateCriarCartao()">Criar cartão</button>
+  <button (click)="navigatePrincipal()">Voltar</button>
 </section>

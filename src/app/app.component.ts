@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
-import { LoginService } from './services/logCad/login.service';
+import { LoginService } from './services/logCad/login/login.service';
 
 @Component({
   selector: 'app-root',

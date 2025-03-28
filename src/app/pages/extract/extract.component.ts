@@ -1,5 +1,7 @@
 import { Component, importProvidersFrom } from '@angular/core';
 import { Transfer } from '../../Interfaces/Transfer';
+import { LoginService } from '../../services/logCad/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-extract',
@@ -9,17 +11,19 @@ import { Transfer } from '../../Interfaces/Transfer';
 })
 export class ExtractComponent {
   verSaldo: boolean = false;
-  saldo: number = 6158.89;
+  saldo!: number;
+  extrato!: Transfer[];
 
-  data1: Date = new Date(2025, 4, 14)
-  data2: Date = new Date(2025, 1, 2)
+  constructor(private router: Router, private loginService: LoginService) {}
 
-  extrato: Transfer[] = [
-    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
-    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
-    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
-    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
-    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
-    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
-  ];
+  ngOnInit() {
+    this.loginService.getUsuarioObservable().subscribe((user) => {
+      this.saldo = user.saldo;
+      this.extrato = user.extrato;
+    });
+  }
+
+  navigatePrincipal(){
+    this.router.navigate(['/divitibank-main']);
+  }
 }

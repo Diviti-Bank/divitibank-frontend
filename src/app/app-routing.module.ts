@@ -12,7 +12,10 @@ import { InsertAmountComponent } from './pages/pags-transferencia/insert-amount/
 import { PaymentMethodComponent } from './pages/pags-transferencia/payment-method/payment-method.component';
 import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
 import { ReceiptComponent } from './pages/receipt/receipt.component';
-import { CadastroErrorComponent } from './error/cadastro-error/cadastro-error.component';
+import { CriarCartaoComponent } from './pages/criar-cartao/criar-cartao.component';
+import { CadastroSucessoComponent } from './success/cadastro-sucesso/cadastro-sucesso.component';
+import { CartaoSucessoComponent } from './success/cartao-sucesso/cartao-sucesso.component';
+import { GeneralErrorComponent } from './error/general-error/general-error.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/divitibank', pathMatch: 'full'},
@@ -22,13 +25,16 @@ const routes: Routes = [
   {path: 'divitibank-main', component: PrincipalComponent},
   {path: 'divitibank-userInfo', component: UserInfosComponent},
   {path: 'divitibank-extract', component: ExtractComponent},
+  {path: 'divitibank-createCard', component: CriarCartaoComponent},
   {path: 'divitibank-cards', component: PagCartoesComponent},
   {path: 'divitibank-transfer-keyPage', component: KeyPageComponent},
   {path: 'divitibank-transfer-insertAmount', component: InsertAmountComponent},
-  {path: 'divitibank-transfer-paymentMethod/:amount', component: PaymentMethodComponent},
-  {path: 'divitibank-transfer-relatory/:amount/:paymentType', component: RelatoryComponent},
-  {path: 'divitibank-transfer-receipt/:amount/:paymentType', component: ReceiptComponent},
-  {path: 'divitibank-logonError', component: CadastroErrorComponent}
+  {path: 'divitibank-transfer-paymentMethod', component: PaymentMethodComponent},
+  {path: 'divitibank-transfer-relatory', component: RelatoryComponent},
+  {path: 'divitibank-transfer-receipt', component: ReceiptComponent},
+  {path: 'divitibank-logonSuccess', component: CadastroSucessoComponent},
+  {path: 'divitibank-cardSuccess', component: CartaoSucessoComponent},
+  {path: 'divitibank-error/:message/:start', component: GeneralErrorComponent},
 ];
 
 @NgModule({

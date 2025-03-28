@@ -1,0 +1,5 @@
+<section [ngClass]="{'cem': isStart == 'true', 'oito': isStart == 'false'}">
+    <img src="assets/images/Unsuccess.svg" alt="" style="width: 80px;">
+    <h1>{{message}}</h1>
+    <button (click)="navigateBack()">Tentar novamente</button>
+</section>

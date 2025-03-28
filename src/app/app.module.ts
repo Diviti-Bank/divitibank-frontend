@@ -19,7 +19,10 @@ import { PaymentMethodComponent } from './pages/pags-transferencia/payment-metho
 import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
 import { ConfirmTransferComponent } from './components/confirm-transfer/confirm-transfer.component';
 import { ReceiptComponent } from './pages/receipt/receipt.component';
-import { CadastroErrorComponent } from './error/cadastro-error/cadastro-error.component';
+import { CriarCartaoComponent } from './pages/criar-cartao/criar-cartao.component';
+import { CadastroSucessoComponent } from './success/cadastro-sucesso/cadastro-sucesso.component';
+import { CartaoSucessoComponent } from './success/cartao-sucesso/cartao-sucesso.component';
+import { GeneralErrorComponent } from './error/general-error/general-error.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { CadastroErrorComponent } from './error/cadastro-error/cadastro-error.co
     RelatoryComponent,
     ConfirmTransferComponent,
     ReceiptComponent,
-    CadastroErrorComponent
+    CriarCartaoComponent,
+    CadastroSucessoComponent,
+    CartaoSucessoComponent,
+    GeneralErrorComponent,
   ],
   imports: [
     BrowserModule,

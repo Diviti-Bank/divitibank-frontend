@@ -1,13 +1,31 @@
+<nav
+    style="
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      padding: 10px;
+      height: 5vh;
+      position: absolute;
+    "
+  >
+    <img
+      src="assets/images/Return.svg"
+      alt=""
+      (click)="navigatePaymentMethod()"
+      id="voltarButton"
+    />
+</nav>
 <section>
     <h1>Relatório</h1>
-    <div>
-        <p>Autor:  ­ {{name1}}</p>
-        <p>CPF:  ­ {{cpf1}}</p>
+    <div style="width: 300px; text-align: center;">
+        <p>Autor: {{`ㅤ${nomeRemetente} ${sobrenomeRemetente}`}}</p>
+        <p>CPF: {{`ㅤ${cpfRemetente}`}}</p>
     </div>
     <div class="blueLine"></div>
-    <div>
-        <p>Destinatário:  ­ {{name2}}</p>
-        <p>CPF:  ­ {{cpf2}}</p>
+    <div style="width: 300px; text-align: center;">
+        <p>Destinatário: {{`ㅤ${nomeDestino} ${sobrenomeDestino}`}}</p>
+        <p>CPF: {{`ㅤ${cpfDestino}`}}</p>
     </div>
     <div class="blueLine"></div>
     <div id="payment">
@@ -19,4 +37,4 @@
     <p id="amount">R$: {{amount}}</p>
     <button (click)="hideConfirm = !hideConfirm">Realizar pagamento</button>
 </section>
-<confirm-transfer [hidden]="hideConfirm" [amount]="amount" [paymentType]="paymentType"></confirm-transfer>
+<confirm-transfer [hidden]="hideConfirm"></confirm-transfer>

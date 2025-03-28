@@ -6,7 +6,7 @@ section{
 
     position: absolute;
     width: 100%;
-    height: 88vh;
+    height: 80vh;
 }
 
 .blueLine{
@@ -25,17 +25,23 @@ section{
     font-size: 45px;
 }
 
-button{
-    color: #EBEBEB;
+button {
+    background: #3118df;
+    color: white;
+    padding: 12px;
     border: none;
-    padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
-    background-color: #3118DF;
-
-    font-size: 15px;
+    font-size: 16px;
+    width: 200px;
+    margin-top: 20px;
 }
 
 #absolute{
     margin-top: 1000px;
+}
+
+#voltarButton {
+    cursor: pointer;
+    z-index: 1;
 }

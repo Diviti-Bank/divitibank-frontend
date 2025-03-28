@@ -1,13 +1,24 @@
 <body>
-    <h1>Dados Pessoais</h1>
-    
-    <div class="container">
-      <div class="dados">
-          <p><strong>Nome<br></strong> {{usuario.nome}}</p>
-          <p><strong>Sobrenome<br></strong> {{usuario.sobrenome}}</p>
-          <p><strong>CPF<br></strong> {{usuario.cpf}}</p>
-          <p><strong>Data de Nascimento<br></strong> -</p>
-      </div>
+  <div style="display: flex; justify-content: start; align-items: center; padding: 10px;">
+    <img src="assets/images/Return.svg" alt="" (click)="navigatePrincipal()" id="voltarButton">
+  </div>
+
+  <h1>Dados Pessoais</h1>
+
+  <div class="container">
+    <div class="dados">
+      <p>
+        <strong>Nome<br /></strong> {{ usuario.nome }}
+      </p>
+      <p>
+        <strong>Sobrenome<br /></strong> {{ usuario.sobrenome }}
+      </p>
+      <p>
+        <strong>CPF<br /></strong> {{ usuario.cpf }}
+      </p>
+      <p>
+        <strong>Data de Nascimento<br /></strong> -
+      </p>
     </div>
-  </body>
-  
+  </div>
+</body>

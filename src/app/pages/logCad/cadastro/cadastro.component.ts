@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewChild, ElementRef } from '@angular/core';
-import { CadastroService } from '../../../services/logCad/cadastro.service';
+import { CadastroService } from '../../../services/logCad/cadastro/cadastro.service';
 import { User } from '../../../Interfaces/User';
 
 @Component({
@@ -20,7 +20,7 @@ export class CadastroComponent {
   constructor(private router: Router, private service: CadastroService) {}
 
   cadastrar() {
-    console.log(this.nome.nativeElement.value)
+    console.log(this.nome.nativeElement.value);
     if (
       this.nome.nativeElement.value != '' &&
       this.sobrenome.nativeElement.value != '' &&
@@ -28,28 +28,44 @@ export class CadastroComponent {
       this.email.nativeElement.value != '' &&
       this.senha.nativeElement.value != ''
     ) {
-      const user: User = {
-        nome: this.nome.nativeElement.value,
-        sobrenome: this.sobrenome.nativeElement.value,
-        cpf: this.cpf.nativeElement.value,
-        email: this.email.nativeElement.value,
-        senha: this.senha.nativeElement.value,
-        saldo: 10,
-        cartoes: [],
-        extrato: [],
-      };
-      this.service.cadastrarUsuario(user).subscribe(
-        (res) => {
-          console.log('Cadastro realizado com sucesso:', res);
-        },
-        (erro) => {
-          console.error('Erro no cadastro:', erro);
-        }
-      );
-      this.navigateLogin()
-    } else{
-      this.router.navigate(['/divitibank-logonError'])
+      if (this.cpfOnzeDigitos()) {
+        const user: User = {
+          nome: this.nome.nativeElement.value,
+          sobrenome: this.sobrenome.nativeElement.value,
+          cpf: this.cpf.nativeElement.value,
+          email: this.email.nativeElement.value,
+          senha: this.senha.nativeElement.value,
+          saldo: 10,
+          cartoes: [],
+          extrato: [],
+        };
+        this.service.cadastrarUsuario(user).subscribe(
+          (res) => {
+            console.log('Cadastro realizado com sucesso:', res);
+            this.router.navigate(['/divitibank-logonSuccess']);
+          },
+          (erro) => {
+            console.error('Erro no cadastro:', erro);
+          }
+        );
+      } else{
+        this.router.navigate([
+          '/divitibank-error',
+          'O CPF deve ter 11 dígitos.',
+          true
+        ]);
+      }
+    } else {
+      this.router.navigate([
+        '/divitibank-error',
+        'Algum dado essencial ficou vazio.',
+        true
+      ]);
     }
+  }
+
+  cpfOnzeDigitos(): boolean {
+    return /^\d{11}$/.test(this.cpf.nativeElement.value);
   }
 
   navigateLogin() {

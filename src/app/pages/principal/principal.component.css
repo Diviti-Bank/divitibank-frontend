@@ -242,3 +242,14 @@ footer{
         gap: 10px;
     }
 }
+
+button{
+    color: #EBEBEB;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #3118DF;
+
+    font-size: 15px;
+}

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Transfer } from '../../Interfaces/Transfer';
 import { Card } from '../../Interfaces/Card';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/logCad/login/login.service';
 
 @Component({
   selector: 'principal',
@@ -9,48 +10,40 @@ import { Router } from '@angular/router';
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css',
 })
-export class PrincipalComponent {
-  constructor(private router: Router) {}
-
+export class PrincipalComponent implements OnInit {
+  cpf!: string;
   verSaldo: boolean = false;
-  saldo: number = 6158.89;
+  saldo!: number;
+  extrato!: Transfer[];
+  cartoes!: Card[];
 
-  data1: Date = new Date(2025, 4, 14)
-  data2: Date = new Date(2025, 1, 2)
+  constructor(private router: Router, private loginService: LoginService) {}
 
-  extrato: Transfer[] = [
-    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
-    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
-    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
-    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
-    { tipo: 'Transferência efetuada', origem: 'Loja do Zé', quantia: -19.6, data: this.data1 },
-    { tipo: 'Transferência recebida', origem: 'Rafael Pither', quantia: 40.0, data: this.data2  },
-  ];
+  ngOnInit() {
+    this.loginService.getUsuarioObservable().subscribe((user) => {
+      this.cpf = user. cpf
+      this.saldo = user.saldo;
+      this.extrato = user.extrato;
+      this.cartoes = user.cartoes;
 
-  cartoes: Card[] = [
-    {
-      status: 'ativo',
-      credito: 0,
-      tipo_cartao: 'Débito',
-      cor_cartao: 'blue',
-      aproximacao: true,
-      cvc: 0o34,
-      nome_cartao: 'JOÃO PEDRO PAULINO',
-      numero_cartao: '0000 0000 0000 0000',
-      validade: '01/30'
-    },
-    {
-      status: 'ativo',
-      credito: 50,
-      tipo_cartao: 'Crédito',
-      cor_cartao: 'black',
-      aproximacao: false,
-      cvc: 342,
-      nome_cartao: 'JOÃO PEDRO PAULINO',
-      numero_cartao: '1111 1111 1111 1111',
-      validade: '02/29'
-    },
-  ];
+      this.loginService.getUsuario(this.cpf).subscribe(
+        (res) => {
+          const usuario = res;
+  
+          this.loginService.setUsuario(usuario);
+
+          this.loginService.getUsuarioObservable().subscribe((user) => {
+            this.saldo = user.saldo;
+            this.extrato = user.extrato;
+            this.cartoes = user.cartoes;
+          });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    });
+  }
 
   navigateExtract() {
     this.router.navigate(['divitibank-extract']);
@@ -58,6 +51,10 @@ export class PrincipalComponent {
 
   navigateCartoes() {
     this.router.navigate(['divitibank-cards']);
+  }
+
+  navigateCriarCartao() {
+    this.router.navigate(['/divitibank-createCard']);
   }
 
   navigateTransferencia() {

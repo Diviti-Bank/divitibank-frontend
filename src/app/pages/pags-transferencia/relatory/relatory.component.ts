@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Card } from '../../../Interfaces/Card';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TransferService } from '../../../services/transfer/transfer.service';
+import { LoginService } from '../../../services/logCad/login/login.service';
 
 @Component({
   selector: 'app-relatory',
@@ -11,29 +13,42 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RelatoryComponent {
   hideConfirm: boolean = true;
 
-  amount: string | null;
-  paymentType: string | null;
+  amount!: number;
+  paymentType!: string;
 
-  name1: string = 'João Pedro Paulino do Nascimento';
-  cpf1: string = '00000000000';
+  nomeRemetente!: string;
+  sobrenomeRemetente!: string;
+  cpfRemetente!: string;
 
-  name2: string = 'João Pedro Carvalho de Jesus';
-  cpf2: string = '11111111111';
+  nomeDestino!: string;
+  sobrenomeDestino!: string;
+  cpfDestino!: string;
 
-  cartao: Card = {
-    status: 'ativo',
-    credito: 0,
-    tipo_cartao: 'Débito',
-    cor_cartao: 'blue',
-    aproximacao: true,
-    cvc: 0o34,
-    nome_cartao: 'JOÃO PEDRO PAULINO',
-    numero_cartao: '0000 0000 0000 0000',
-    validade: '01/30',
-  };
+  constructor(private router: Router, private service: TransferService, private loginService: LoginService) {}
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.amount = this.route.snapshot.paramMap.get('amount');
-    this.paymentType = this.route.snapshot.paramMap.get('paymentType');
+  ngOnInit(){
+    this.service.getDinheiro().subscribe((dinheiro) => {
+      this.amount = dinheiro;
+    });
+
+    this.service.getMetodoPagamento().subscribe((metodo) => {
+      this.paymentType = metodo;
+    });
+
+    this.loginService.getUsuarioObservable().subscribe((user) => {
+      this.nomeRemetente = user.nome;
+      this.sobrenomeRemetente = user.sobrenome;
+      this.cpfRemetente = user.cpf;
+    });
+
+    this.service.getDestino().subscribe((destino) => {
+      this.nomeDestino = destino.nome;
+      this.sobrenomeDestino = destino.sobrenome;
+      this.cpfDestino = destino.cpf;
+    })
+  }
+
+  navigatePaymentMethod(){
+    this.router.navigate(['divitibank-transfer-paymentMethod']);
   }
 }

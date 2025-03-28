@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroErrorComponent } from './cadastro-error.component';
+import { CriarCartaoComponent } from './criar-cartao.component';
 
-describe('CadastroErrorComponent', () => {
-  let component: CadastroErrorComponent;
-  let fixture: ComponentFixture<CadastroErrorComponent>;
+describe('CriarCartaoComponent', () => {
+  let component: CriarCartaoComponent;
+  let fixture: ComponentFixture<CriarCartaoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CadastroErrorComponent]
+      declarations: [CriarCartaoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CadastroErrorComponent);
+    fixture = TestBed.createComponent(CriarCartaoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { TransferService } from '../../../services/transfer/transfer.service';
 
 @Component({
   selector: 'app-insert-amount',
@@ -9,15 +10,15 @@ import { Router } from '@angular/router';
 })
 export class InsertAmountComponent {
   @ViewChild('inputRef') inputRef!: ElementRef;
-  formattedValue: string = "_,__";
+  formattedValue: string = '_,__';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service: TransferService) {}
 
   formatInput(event: any) {
     let rawValue = event.target.value.replace(/[^0-9]/g, '');
 
     while (rawValue.length < 3) {
-      rawValue = "_" + rawValue;
+      rawValue = '_' + rawValue;
     }
 
     this.formattedValue = rawValue.slice(0, -2) + ',' + rawValue.slice(-2);
@@ -30,17 +31,22 @@ export class InsertAmountComponent {
     const cursorPos = input.selectionStart;
     const blockedPositions = [0, 1, 2];
 
-    if ((event.key === "Backspace" && blockedPositions.includes(cursorPos! - 1)) ||
-        (event.key === "Delete" && blockedPositions.includes(cursorPos!))) {
+    if (
+      (event.key === 'Backspace' &&
+        blockedPositions.includes(cursorPos! - 1)) ||
+      (event.key === 'Delete' && blockedPositions.includes(cursorPos!))
+    ) {
       event.preventDefault();
       return;
     }
 
-    if (!/^[0-9]$/.test(event.key) &&
-        event.key !== "Backspace" &&
-        event.key !== "Delete" &&
-        event.key !== "ArrowLeft" &&
-        event.key !== "ArrowRight") {
+    if (
+      !/^[0-9]$/.test(event.key) &&
+      event.key !== 'Backspace' &&
+      event.key !== 'Delete' &&
+      event.key !== 'ArrowLeft' &&
+      event.key !== 'ArrowRight'
+    ) {
       event.preventDefault();
     }
   }
@@ -56,7 +62,32 @@ export class InsertAmountComponent {
     });
   }
 
-  navigatePaymentMethod(){
-    this.router.navigate(['divitibank-transfer-paymentMethod', this.inputRef.nativeElement.value]);
+  formatarParaNumero(): number {
+    const valorFormatado = this.formattedValue
+      .replace(/_/g, '0')
+      .replace(',', '.');
+
+    return parseFloat(valorFormatado);
+  }
+
+  maisDeCentavo(): boolean {
+    return this.formatarParaNumero() >= 0.01;
+  }
+
+  navigateInsertKey() {
+    this.router.navigate(['divitibank-transfer-keyPage']);
+  }
+
+  navigatePaymentMethod() {
+    if (this.maisDeCentavo()) {
+      this.service.setDinheiro(this.formatarParaNumero());
+      this.router.navigate(['divitibank-transfer-paymentMethod']);
+    } else {
+      this.router.navigate([
+        '/divitibank-error',
+        'A quantia transferida deve ser de, ao menos, 1 centavo (0,01).',
+        false,
+      ]);
+    }
   }
 }
