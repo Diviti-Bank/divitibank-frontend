@@ -29,7 +29,7 @@
     <div id="card1">
       <p>Histórico de operações</p>
       <div id="dadosExtrato" *ngIf="extrato.length > 0">
-        <div *ngFor="let transfer of extrato.slice(0, 5).reverse()" id="transacao">
+        <div *ngFor="let transfer of extrato.reverse().slice(0, 5)" id="transacao">
           <div id="dadosSemDinheiro">
             <img src="assets/images/Money.svg" alt="" />
             <div>
