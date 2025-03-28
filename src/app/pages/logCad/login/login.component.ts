@@ -23,11 +23,15 @@ export class LoginComponent {
       this.service.getUsuario(this.cpf.nativeElement.value).subscribe(
         (res) => {
           this.usuario = res;
-          if(this.senha.nativeElement.value == this.usuario.senha){
-            this.service.setUsuario(this.usuario);
-            this.navigatePrincipal();
-          }
-          else{
+          if(this.usuario){
+            if(this.senha.nativeElement.value == this.usuario.senha){
+              this.service.setUsuario(this.usuario);
+              this.navigatePrincipal();
+            }
+            else{
+              this.router.navigate(['/divitibank-error', 'As credenciais inseridas estão incorretas.', true]);
+            }
+          } else {
             this.router.navigate(['/divitibank-error', 'As credenciais inseridas estão incorretas.', true]);
           }
         },

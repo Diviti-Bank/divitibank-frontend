@@ -1,62 +1,93 @@
 <nav
-    style="
-      width: 100%;
-      display: flex;
-      justify-content: start;
-      align-items: center;
-      padding: 10px;
-      height: 5vh;
-    "
-  >
-    <img
-      src="assets/images/Return.svg"
-      alt=""
-      (click)="navigatePrincipal()"
-      id="voltarButton"
-    />
-  </nav>
+  style="
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 5vh;
+  "
+>
+  <img
+    src="assets/images/Return.svg"
+    alt=""
+    (click)="navigatePrincipal()"
+    id="voltarButton"
+  />
+  <h2>Criar cartão</h2>
+</nav>
 <section>
-    <form>
-        <h3>Tipo do cartão:</h3>
-        <label for="">
-            <p>Crédito</p>
-            <input type="radio" name="tipoPagamento" [value]="'Crédito'" [(ngModel)]="tipoCartao">
-        </label>
-        <label for="">
-            <p>Débito</p>
-            <input type="radio" name="tipoPagamento" [value]="'Débito'" [(ngModel)]="tipoCartao">
-        </label>
-    </form>
-    <form *ngIf="cartoes.length == 0">
-        <h3>Cor do cartão:</h3>
-        <label for="">
-            <div>
-                <p>Blue</p>
-                <img src="assets/images/MiniCardBlue.svg" alt="">
-            </div>
-            <input type="radio" name="corCartao" [value]="'blue'" [(ngModel)]="corCartao">
-        </label>
-        <label for="">
-            <div>
-                <p>Black</p>
-                <img src="assets/images/MiniCardBlack.svg" alt="">
-            </div>
-            <input type="radio" name="corCartao" [value]="'black'" [(ngModel)]="corCartao">
-        </label>
-    </form>
-    <form>
-        <h3>Aproximação:</h3>
-        <label for="">
-            <p>Sim</p>
-            <input type="radio" name="aproximacao" [value]="true" [(ngModel)]="aproximacao">
-        </label>
-        <label for="">
-            <p>Não</p>
-            <input type="radio" name="aproximacao" [value]="false" [(ngModel)]="aproximacao">
-        </label>
-    </form>
-    <form action="">
-        <input type="text" id="input" placeholder="Seu nome no cartão" #name>
-    </form>
-    <button class="login-btn" (click)="cadastrar()">Criar cartão</button>
+  <form>
+    <h3>Tipo do cartão:</h3>
+    <label for="">
+      <p>Crédito</p>
+      <input
+        type="radio"
+        name="tipoPagamento"
+        [value]="'Crédito'"
+        [(ngModel)]="tipoCartao"
+      />
+    </label>
+    <label for="">
+      <p>Débito</p>
+      <input
+        type="radio"
+        name="tipoPagamento"
+        [value]="'Débito'"
+        [(ngModel)]="tipoCartao"
+      />
+    </label>
+  </form>
+  <form *ngIf="cartoes.length == 0">
+    <h3>Cor do cartão:</h3>
+    <label for="">
+      <div>
+        <p>Blue</p>
+        <img src="assets/images/MiniCardBlue.svg" alt="" />
+      </div>
+      <input
+        type="radio"
+        name="corCartao"
+        [value]="'blue'"
+        [(ngModel)]="corCartao"
+      />
+    </label>
+    <label for="">
+      <div>
+        <p>Black</p>
+        <img src="assets/images/MiniCardBlack.svg" alt="" />
+      </div>
+      <input
+        type="radio"
+        name="corCartao"
+        [value]="'black'"
+        [(ngModel)]="corCartao"
+      />
+    </label>
+  </form>
+  <form>
+    <h3>Aproximação:</h3>
+    <label for="">
+      <p>Sim</p>
+      <input
+        type="radio"
+        name="aproximacao"
+        [value]="true"
+        [(ngModel)]="aproximacao"
+      />
+    </label>
+    <label for="">
+      <p>Não</p>
+      <input
+        type="radio"
+        name="aproximacao"
+        [value]="false"
+        [(ngModel)]="aproximacao"
+      />
+    </label>
+  </form>
+  <form action="">
+    <input type="text" id="input" placeholder="Seu nome no cartão" #name />
+  </form>
+  <button class="login-btn" (click)="cadastrar()">Criar cartão</button>
 </section>

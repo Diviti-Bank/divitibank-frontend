@@ -1,5 +1,6 @@
-<div style="width: 50%; position: absolute; padding: 15px">
+<div style="width: 98%; position: absolute; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
   <img src="assets/images/Return.svg" alt="" style="cursor: pointer;" (click)="navigatePrincipal()"/>
+  <h2>Cartões</h2>
 </div>
 <section *ngIf="cartoes.length > 0 && cardOne">
   <div *ngFor="let card of cartoes.slice(0, 1)">

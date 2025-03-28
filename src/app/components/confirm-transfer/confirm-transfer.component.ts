@@ -14,6 +14,7 @@ export class ConfirmTransferComponent {
   cpfDestino!: string;
   dinheiro!: number;
   metodoPagamento!: number;
+  canConfirm: boolean = true;
 
   constructor(private router: Router, private service: TransferService) {}
 
@@ -39,6 +40,7 @@ export class ConfirmTransferComponent {
   }
 
   navigateReceipt() {
+    this.canConfirm = false;
     this.service
       .fazerTransferencia(
         this.cpfRemetente,

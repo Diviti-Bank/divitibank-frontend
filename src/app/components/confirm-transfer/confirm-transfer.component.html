@@ -5,7 +5,8 @@
     <div>
         <h1>Confirmar transferência?</h1>
         <nav>
-            <button (click)="navigateReceipt()">Confirmar</button>
+            <button *ngIf="canConfirm == true" (click)="navigateReceipt()">Confirmar</button>
+            <button *ngIf="canConfirm == false">Confirmar</button>
             <button id="cancel" (click)="navigatePrincipal()">Cancelar</button>
         </nav>  
     </div>

@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { TransferService } from '../../../services/transfer/transfer.service';
+import { User } from '../../../Interfaces/User';
+import { LoginService } from '../../../services/logCad/login/login.service';
 
 @Component({
   selector: 'app-insert-amount',
@@ -12,7 +14,24 @@ export class InsertAmountComponent {
   @ViewChild('inputRef') inputRef!: ElementRef;
   formattedValue: string = '_,__';
 
-  constructor(private router: Router, private service: TransferService) {}
+  remetente!: User;
+  destinatario!: User;
+
+  constructor(
+    private router: Router,
+    private service: TransferService,
+    private loginService: LoginService
+  ) {}
+
+  ngOnInit() {
+    this.loginService.getUsuarioObservable().subscribe((user) => {
+      this.remetente = user;
+    });
+
+    this.service.getDestino().subscribe((user) => {
+      this.destinatario = user;
+    });
+  }
 
   formatInput(event: any) {
     let rawValue = event.target.value.replace(/[^0-9]/g, '');
@@ -74,14 +93,26 @@ export class InsertAmountComponent {
     return this.formatarParaNumero() >= 0.01;
   }
 
+  dinheiroMenorQueSaldo() {
+    return this.formatarParaNumero() <= this.remetente.saldo;
+  }
+
   navigateInsertKey() {
     this.router.navigate(['divitibank-transfer-keyPage']);
   }
 
   navigatePaymentMethod() {
     if (this.maisDeCentavo()) {
-      this.service.setDinheiro(this.formatarParaNumero());
-      this.router.navigate(['divitibank-transfer-paymentMethod']);
+      if (this.dinheiroMenorQueSaldo()) {
+        this.service.setDinheiro(this.formatarParaNumero());
+        this.router.navigate(['divitibank-transfer-paymentMethod']);
+      } else {
+        this.router.navigate([
+          '/divitibank-error',
+          'A quantia transferida deve ser menor ou igual ao seu saldo.',
+          false,
+        ]);
+      }
     } else {
       this.router.navigate([
         '/divitibank-error',
