@@ -1,59 +1,73 @@
 # DivitibankFrontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Documentação do Front-End
+Integrantes(front-end):
+João Pedro Paulino do Nascimento
+Rafael Pither da Silva Pinto
 
-## Development server
+## Introdução
 
-To start a local development server, run:
+O Diviti Bank Front-End tem como objetivo integrar o sistema da API SpringBoot do Diviti Bank Back-End. 
+O sistema é feito no framework Angular com TypeScript, HTML e CSS.
+Requisitos necessários:
+Ter o Node.js e o Angular CLI instalados.
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Configuração
 
-## Code scaffolding
+1.	Clone o repositório
+Para clonar o repositório, no terminal Bash em qualquer pasta, de o comando “ git clone https://github.com/Diviti-Bank/divitibank-frontend.git ”
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2.	Instale as dependências
+Dentro do projeto e do Bash de o comando “npm install” 
 
-```bash
-ng generate component component-name
-```
+3.	Execute o projeto
+Dentro do Bash execute o comando “ng serve”
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+## Estrutura
 
-## Building
+Na parte principal do projeto existem os arquivos: package.json e package-lock.json que são onde estão instaladas as dependências, além da pasta node_modules que é instalada quando as dependências são instaladas que possui todos os módulos necessários para o projeto funcionar, junto com a pasta “src”  que compõe a estrutura do projeto.
+Dentro do src estão as pastas:
+Assets – Que possui os recursos de imagem do projeto;
+App – Que possui os componentes, interfaces, services, o componente app e o módulo geral e de rotas.
 
-To build the project run:
 
-```bash
-ng build
-```
+Dentro do App temos as pastas:
+Pages – que possui os componentes que compõe uma página inteira;
+Components – que possui os componentes que compõe apenas uma parte das páginas;
+Interfaces – que possui as interfaces de informações;
+Services – que possui os serviços que fazem a ligação com a API do Back-End.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+## Componentes
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Na pasta pages temos a página inicial, as páginas de login e cadastro, a página principal, a página de extrato, a página de cartões, a página de informações de usuário, as páginas de transferência. 
+Na pasta components temos a nav-bar e a confirmação de compra.
+Na pasta services (completar)
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
+## Módulos e Rotas
+### Módularização
 
-For end-to-end (e2e) testing, run:
+Feita a partir de um único módulo “app.module.ts” que importa e declara todos os componentes.
 
-```bash
-ng e2e
-```
+### Roteamento
+‘/’ (redireciona /divitibank)
+‘/divitibank’ (Página Inicial)
+‘/divitibank-login’ (Página de Login)
+‘/divitibank-logon’ (Página de Cadastro)
+‘/divitibank-principal’ (Página Principal)
+‘/divitibank-extract’ (Página de Extrato)
+‘/divitibank-cards’ (Página de Cartões)
+‘/divitibank-userInfo’ (Página de Informações do Usuário)
+‘/divitibank-transfer-keyPage’ (Página de inserção de chave de Transferência)
+‘/divitibank-transfer-insertAmount’ (Página de inserção de quantidade a ser transferida)
+‘/divitibank-transfer-paymentMethod’ (Página de escolha de método de pagamento)
+‘/divitibank-transfer-relatory’ (Página de relatório e confirmação de transferência)
+‘/divitibank-transfer-receipt’ (Página de comprovante de transferência)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+## Build e Deploy
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+O Deploy é feito no Render no projeto: link do render
