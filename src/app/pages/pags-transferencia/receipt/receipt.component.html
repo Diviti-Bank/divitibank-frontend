@@ -1,0 +1,31 @@
+<div style="width: 98%; position: absolute; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+  <img src="assets/images/Return.svg" alt="" style="cursor: pointer;" (click)="navigatePrincipal()"/>
+  <h2>Recibo</h2>
+</div>
+<section>
+  <span>
+    <nav>
+      <img src="/assets/images/ReceiptCheck.svg" alt="" />
+      <h1>Transferência Realizada</h1>
+    </nav>
+    <footer>
+      <p class="dados">Dados do autor:</p>
+      <p>{{ `${remetente.nome} ${remetente.sobrenome}` }}</p>
+      <p>{{ remetente.cpf }}</p>
+      <br />
+      <div class="nineLine"></div>
+      <br />
+      <p class="dados">Dados do destinatário:</p>
+      <p>{{ `${destinatario.nome} ${destinatario.sobrenome}` }}</p>
+      <p>{{ destinatario.cpf }}</p>
+      <br />
+      <div class="nineLine"></div>
+      <br />
+      <p class="dados">Data da transferência:</p>
+      <p>{{ date }}</p>
+      <p>{{ hour }}</p>
+      <br />
+      <p style="font-size: 20px">R$ {{ dinheiro | number:'1.2-2' }}</p>
+    </footer>
+  </span>
+</section>

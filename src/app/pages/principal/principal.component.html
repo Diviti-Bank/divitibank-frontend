@@ -2,7 +2,7 @@
   <div id="saldo">
     <div>
       <p>Saldo em conta:</p>
-      <p *ngIf="verSaldo">R$ {{ saldo }}</p>
+      <p *ngIf="verSaldo">R$ {{ saldo | number : "1.2-2" }}</p>
       <p *ngIf="!verSaldo">R$ ------------</p>
     </div>
     <div>
@@ -28,29 +28,30 @@
   <div id="cards">
     <div id="card1">
       <p>Histórico de operações</p>
-      <div id="dadosExtrato">
-        <div *ngFor="let transfer of extrato | slice : 0 : 5" id="transacao">
+      <div id="dadosExtrato" *ngIf="extrato.length > 0">
+        <div *ngFor="let transfer of extrato.reverse().slice(0, 5)" id="transacao">
           <div id="dadosSemDinheiro">
             <img src="assets/images/Money.svg" alt="" />
             <div>
-              <h2>{{ transfer.type }}</h2>
-              <p>{{ transfer.user }}</p>
+              <h2 *ngIf="transfer.quantia < 0">Transferência efetuada</h2>
+              <h2 *ngIf="transfer.quantia > 0">Transferência recebida</h2>
+              <p>{{ transfer.origem }}</p>
             </div>
           </div>
           <p
             [ngClass]="{
-              dinheiroPer: transfer.money < 0,
-              dinheiroRec: transfer.money > 0
+              dinheiroPer: transfer.quantia < 0,
+              dinheiroRec: transfer.quantia > 0
             }"
 
             *ngIf="verSaldo"
           >
-            R$ {{ transfer.money | number:'1.2-2' }}
+            R$ {{ transfer.quantia | number:'1.2-2' }}
           </p>
           <p
             [ngClass]="{
-              dinheiroPer: transfer.money < 0,
-              dinheiroRec: transfer.money > 0
+              dinheiroPer: transfer.quantia < 0,
+              dinheiroRec: transfer.quantia > 0
             }"
 
             *ngIf="!verSaldo"
@@ -58,6 +59,9 @@
             R$ -------
           </p>
         </div>
+      </div>
+      <div *ngIf="extrato.length == 0">
+        <h1>Você ainda não tem nenhuma operação financeira.</h1>
       </div>
       <span>
         <img src="assets/images/BlackLine.svg" alt="" />
@@ -69,25 +73,30 @@
         <p>Cartões ></p>
         <img src="assets/images/BlackLine.svg" alt="" />
       </span>
-      <div id="divitiCards">
+      <div id="divitiCards" *ngIf="cartoes.length > 0">
         <div *ngFor="let card of cartoes | slice:0:2">
           <div id="cartao">
-              <div *ngIf="card.color == 'blue'">
+              <div *ngIf="card.cor_cartao == 'blue'">
                   <img
                     src="assets/images/DivitiCardBlue.svg"
                     alt=""
                   />
-                  <p>{{card.name}}</p>
+                  <p>{{card.nome_cartao}}</p>
               </div>
-              <div *ngIf="card.color == 'black'">
+              <div *ngIf="card.cor_cartao == 'black'">
                   <img
                     src="assets/images/DivitiCardBlack.svg"
                     alt=""
-                  /><p>{{card.name}}</p>
+                  /><p>{{card.nome_cartao}}</p>
               </div>
           </div>
         </div>
       </div>
+      <div *ngIf="cartoes.length == 0" style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 10px;">
+        <h1>Você ainda não possui nenhum cartão.</h1>
+        <button (click)="navigateCriarCartao()">Criar cartão</button>
+      </div>
+      <span style="height: 65px;" *ngIf="cartoes.length == 0"></span>
     </div>
   </div>
   <footer>

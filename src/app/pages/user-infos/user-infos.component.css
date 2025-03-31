@@ -56,3 +56,7 @@ h1 {
 .dados p {
     margin-bottom: 35px;
 }
+
+#voltarButton {
+    cursor: pointer;
+}

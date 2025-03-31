@@ -3,11 +3,11 @@
         <div class="login-section">
             <h2>Acesse sua conta</h2>
             <form>
-                <input type="text" placeholder="CPF">
-                <input type="password" placeholder="Senha">
+                <input type="text" placeholder="CPF" #cpf>
+                <input type="password" placeholder="Senha" #senha>
                 <a href="#" class="forgot-password">Esqueci minha senha</a>
             </form>
-            <button class="login-btn" (click)="navigatePrincipal()">Log in</button>
+            <button class="login-btn" (click)="login()">Log in</button>
         </div>
         <div class="welcome-section">
             <h2>Bem-Vindo(a) de volta</h2>

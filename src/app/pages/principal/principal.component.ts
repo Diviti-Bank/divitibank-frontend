@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { Transfer } from '../../interfaces/Transfer';
-import { Card } from '../../interfaces/Card';
+import { Component, OnInit } from '@angular/core';
+import { Transfer } from '../../Interfaces/Transfer';
+import { Card } from '../../Interfaces/Card';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/logCad/login/login.service';
 
 @Component({
   selector: 'principal',
@@ -9,40 +10,40 @@ import { Router } from '@angular/router';
   templateUrl: './principal.component.html',
   styleUrl: './principal.component.css',
 })
-export class PrincipalComponent {
-  constructor(private router: Router) {}
-
+export class PrincipalComponent implements OnInit {
+  cpf!: string;
   verSaldo: boolean = false;
-  saldo: number = 6158.89;
-  extrato: Transfer[] = [
-    { type: 'Transferência efetuada', user: 'Loja do Zé', money: -19.6 },
-    { type: 'Transferência recebida', user: 'Rafael Pither', money: 40.0 },
-    { type: 'Transferência efetuada', user: 'Loja do Zé', money: -19.6 },
-    { type: 'Transferência recebida', user: 'Rafael Pither', money: 40.0 },
-    { type: 'Transferência efetuada', user: 'Loja do Zé', money: -19.6 },
-    { type: 'Transferência recebida', user: 'Rafael Pither', money: 40.0 },
-  ];
+  saldo!: number;
+  extrato!: Transfer[];
+  cartoes!: Card[];
 
-  cartoes: Card[] = [
-    {
-      name: 'JOAO PEDRO PAULINO',
-      cvc: '696',
-      type: 'Débito',
-      number: '0000 0000 0000 0000',
-      expireDate: '01/30',
-      aprox: 'Sim',
-      color: 'blue',
-    },
-    {
-      name: 'JOAO PEDRO PAULINO',
-      cvc: '969',
-      type: 'Crédito',
-      number: '1111 1111 1111 1111',
-      expireDate: '03/29',
-      aprox: 'Não',
-      color: 'black',
-    },
-  ];
+  constructor(private router: Router, private loginService: LoginService) {}
+
+  ngOnInit() {
+    this.loginService.getUsuarioObservable().subscribe((user) => {
+      this.cpf = user. cpf
+      this.saldo = user.saldo;
+      this.extrato = user.extrato;
+      this.cartoes = user.cartoes;
+
+      this.loginService.getUsuario(this.cpf).subscribe(
+        (res) => {
+          const usuario = res;
+  
+          this.loginService.setUsuario(usuario);
+
+          this.loginService.getUsuarioObservable().subscribe((user) => {
+            this.saldo = user.saldo;
+            this.extrato = user.extrato;
+            this.cartoes = user.cartoes;
+          });
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    });
+  }
 
   navigateExtract() {
     this.router.navigate(['divitibank-extract']);
@@ -50,6 +51,10 @@ export class PrincipalComponent {
 
   navigateCartoes() {
     this.router.navigate(['divitibank-cards']);
+  }
+
+  navigateCriarCartao() {
+    this.router.navigate(['/divitibank-createCard']);
   }
 
   navigateTransferencia() {

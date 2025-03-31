@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,11 @@ import { InsertAmountComponent } from './pages/pags-transferencia/insert-amount/
 import { PaymentMethodComponent } from './pages/pags-transferencia/payment-method/payment-method.component';
 import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
 import { ConfirmTransferComponent } from './components/confirm-transfer/confirm-transfer.component';
-import { ReceiptComponent } from './pages/receipt/receipt.component';
+import { ReceiptComponent } from './pages/pags-transferencia/receipt/receipt.component';
+import { CriarCartaoComponent } from './pages/criar-cartao/criar-cartao.component';
+import { CadastroSucessoComponent } from './success/cadastro-sucesso/cadastro-sucesso.component';
+import { CartaoSucessoComponent } from './success/cartao-sucesso/cartao-sucesso.component';
+import { GeneralErrorComponent } from './error/general-error/general-error.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +40,17 @@ import { ReceiptComponent } from './pages/receipt/receipt.component';
     PaymentMethodComponent,
     RelatoryComponent,
     ConfirmTransferComponent,
-    ReceiptComponent
+    ReceiptComponent,
+    CriarCartaoComponent,
+    CadastroSucessoComponent,
+    CartaoSucessoComponent,
+    GeneralErrorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

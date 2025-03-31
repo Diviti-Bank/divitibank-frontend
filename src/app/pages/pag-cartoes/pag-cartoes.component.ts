@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Card } from '../../interfaces/Card';
+import { Card } from '../../Interfaces/Card';
+import { LoginService } from '../../services/logCad/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pag-cartoes',
@@ -9,25 +11,21 @@ import { Card } from '../../interfaces/Card';
 })
 export class PagCartoesComponent {
   cardOne: boolean = true;
+  cartoes!: Card[];
 
-  cartoes: Card[] = [
-      {
-        name: 'JOAO PEDRO PAULINO',
-        cvc: '696',
-        type: 'Débito',
-        number: '0000 0000 0000 0000',
-        expireDate: '01/30',
-        aprox: 'Sim',
-        color: 'blue',
-      },
-      {
-        name: 'JOAO PEDRO PAULINO',
-        cvc: '969',
-        type: 'Crédito',
-        number: '1111 1111 1111 1111',
-        expireDate: '03/29',
-        aprox: 'Não',
-        color: 'black',
-      },
-    ];
+  constructor(private router: Router, private loginService: LoginService) {}
+
+  ngOnInit(){
+    this.loginService.getUsuarioObservable().subscribe((user) => {
+      this.cartoes = user.cartoes;
+    })
+  }
+
+  navigatePrincipal(){
+    this.router.navigate(['/divitibank-main']);
+  }
+
+  navigateCriarCartao() {
+    this.router.navigate(['/divitibank-createCard']);
+  }
 }

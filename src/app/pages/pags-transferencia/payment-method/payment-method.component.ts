@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Card } from '../../../interfaces/Card';
+import { Card } from '../../../Interfaces/Card';
+import { TransferService } from '../../../services/transfer/transfer.service';
+import { LoginService } from '../../../services/logCad/login/login.service';
 
 @Component({
   selector: 'app-payment-method',
@@ -9,39 +11,33 @@ import { Card } from '../../../interfaces/Card';
   styleUrl: './payment-method.component.css'
 })
 export class PaymentMethodComponent {
-  amount: string | null;
+  cpfRemetente!: string;
+  amount!: number;
+  cartoes!: Card[];
   selectedOption!: string;
 
-  cartoes: Card[] = [
-        {
-          name: 'JOAO PEDRO PAULINO',
-          cvc: '696',
-          type: 'Débito',
-          number: '0000 0000 0000 0000',
-          expireDate: '01/30',
-          aprox: 'Sim',
-          color: 'blue',
-        },
-        {
-          name: 'JOAO PEDRO PAULINO',
-          cvc: '969',
-          type: 'Crédito',
-          number: '1111 1111 1111 1111',
-          expireDate: '03/29',
-          aprox: 'Não',
-          color: 'black',
-        },
-      ];
+  constructor (private router: Router, private service: TransferService, private loginService: LoginService) {}
 
-  constructor (private router: Router, private route: ActivatedRoute) {
-    this.amount = this.route.snapshot.paramMap.get('amount');
+  ngOnInit(){
+    this.loginService.getUsuarioObservable().subscribe((user) => {
+      this.cartoes = user.cartoes;
+
+      this.service.getDinheiro().subscribe((dinheiro) => {
+        this.amount = dinheiro;
+      });
+    });
   }
 
   isSelected(value: string): boolean {
     return this.selectedOption === value;
   }
 
+  navigateInsertAmount(){
+    this.router.navigate(['divitibank-transfer-insertAmount']);
+  }
+
   navigateRelatory(){
-    this.router.navigate(['divitibank-transfer-relatory', this.amount, this.selectedOption])
+    this.service.setMetodoPagamento(this.selectedOption);
+    this.router.navigate(['divitibank-transfer-relatory'])
   }
 }

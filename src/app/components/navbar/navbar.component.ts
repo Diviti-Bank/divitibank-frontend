@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/logCad/login/login.service';
 
 @Component({
   selector: 'navbar',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   isChecked: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   navigateUserInfo(){
     this.isChecked = false;
@@ -23,7 +24,6 @@ export class NavbarComponent {
   }
 
   navigatePagInicial() {
-    this.isChecked = false;
-    this.router.navigate([''])
+    window.location.reload();
   }
 }

@@ -1,31 +1,49 @@
+<nav
+    style="
+      width: 98%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      height: 7.65vh;
+    "
+  >
+    <img
+      src="assets/images/Return.svg"
+      alt=""
+      (click)="navigateInsertAmount()"
+      id="voltarButton"
+    />
+    <h2>Transferir</h2>
+</nav>
 <section>
   <nav>
-    <p>R$: {{ amount }}</p>
+    <p>R$: {{ amount | number:'1.2-2' }}</p>
     <h1>Selecione o método de pagamento</h1>
   </nav>
   <form>
     <div *ngFor="let card of cartoes">
-      <label [class.selected]="isSelected(card.color)">
+      <label [class.selected]="isSelected(card.cor_cartao)">
         <div>
           <input
             type="radio"
             name="opcao"
             id="radio"
-            [value]="card.color"
+            [value]="card.cor_cartao"
             [(ngModel)]="selectedOption"
           />
-          <h4 *ngIf="card.color == 'blue'">DivitiCard Blue</h4>
-          <h4 *ngIf="card.color == 'black'">DivitiCard Black</h4>
+          <h4 *ngIf="card.cor_cartao == 'blue'">DivitiCard Blue</h4>
+          <h4 *ngIf="card.cor_cartao == 'black'">DivitiCard Black</h4>
         </div>
         <img
           src="/assets/images/MiniCardBlue.svg"
           alt=""
-          *ngIf="card.color == 'blue'"
+          *ngIf="card.cor_cartao == 'blue'"
         />
         <img
           src="/assets/images/MiniCardBlack.svg"
           alt=""
-          *ngIf="card.color == 'black'"
+          *ngIf="card.cor_cartao == 'black'"
         />
       </label>
       <br />
@@ -46,5 +64,6 @@
     </label>
     <br />
   </form>
-  <button (click)="navigateRelatory()">Prosseguir</button>
+  <button *ngIf="selectedOption" (click)="navigateRelatory()">Prosseguir</button>
+  <button *ngIf="!selectedOption" style="background-color: #d9d9d9; color: #FFFFFF; cursor: auto;">Prosseguir</button>
 </section>

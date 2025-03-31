@@ -1,22 +1,42 @@
+<nav
+  style="
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 7.65vh;
+    position: absolute;
+  "
+>
+  <img
+    src="assets/images/Return.svg"
+    alt=""
+    (click)="navigatePaymentMethod()"
+    id="voltarButton"
+    style="position: absolute;"
+  />
+  <h2 style="position: absolute; margin-left: 90.2vw;">Transferir</h2>
+</nav>
 <section>
-    <h1>Relatório</h1>
-    <div>
-        <p>Autor:  ­ {{autor.name}}</p>
-        <p>CPF:  ­ {{autor.cpf}}</p>
-    </div>
-    <div class="blueLine"></div>
-    <div>
-        <p>Destinatário:  ­ {{destin.name}}</p>
-        <p>CPF:  ­ {{destin.cpf}}</p>
-    </div>
-    <div class="blueLine"></div>
-    <div id="payment">
-        <p>Método de pagamento: </p>
-        <p *ngIf="paymentType == 'money'">Saldo bancário</p>
-        <p *ngIf="paymentType == 'blue'">DivitiCard Blue</p>
-        <p *ngIf="paymentType == 'black'">DivitiCard Black</p>
-    </div>
-    <p id="amount">R$: {{amount}}</p>
-    <button (click)="hideConfirm = !hideConfirm">Realizar pagamento</button>
+  <h1>Relatório</h1>
+  <div style="width: 300px; text-align: center">
+    <p>Autor: {{`ㅤ${nomeRemetente} ${sobrenomeRemetente}`}}</p>
+    <p>CPF: {{`ㅤ${cpfRemetente}`}}</p>
+  </div>
+  <div class="blueLine"></div>
+  <div style="width: 300px; text-align: center">
+    <p>Destinatário: {{`ㅤ${nomeDestino} ${sobrenomeDestino}`}}</p>
+    <p>CPF: {{`ㅤ${cpfDestino}`}}</p>
+  </div>
+  <div class="blueLine"></div>
+  <div id="payment">
+    <p>Método de pagamento:</p>
+    <p *ngIf="paymentType == 'money'">Saldo bancário</p>
+    <p *ngIf="paymentType == 'blue'">DivitiCard Blue</p>
+    <p *ngIf="paymentType == 'black'">DivitiCard Black</p>
+  </div>
+  <p id="amount">R$: {{ amount | number : "1.2-2" }}</p>
+  <button (click)="hideConfirm = !hideConfirm">Realizar pagamento</button>
 </section>
-<confirm-transfer [hidden]="hideConfirm" [amount]="amount" [paymentType]="paymentType"></confirm-transfer>
+<confirm-transfer [hidden]="hideConfirm"></confirm-transfer>

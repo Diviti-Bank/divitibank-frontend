@@ -1,5 +1,23 @@
+<nav
+    style="
+      width: 98%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      height: 7.65vh;
+    "
+  >
+    <img
+      src="assets/images/Return.svg"
+      alt=""
+      (click)="navigatePrincipal()"
+      id="voltarButton"
+    />
+    <h2>Transferir</h2>
+</nav>
 <section>
     <h1>Digite a chave de transferência (CPF)</h1>
-    <input type="number" placeholder="CPF" >
+    <input type="number" placeholder="CPF" #cpfDestino>
     <button (click)="navigateInsertAmount()">Prosseguir</button>
 </section>

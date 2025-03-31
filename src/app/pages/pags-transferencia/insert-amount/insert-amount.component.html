@@ -1,5 +1,24 @@
+<nav
+    style="
+      width: 99.3%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      height: 7.65vh;
+      margin-top: 10px;
+    "
+  >
+    <img
+      src="assets/images/Return.svg"
+      alt=""
+      (click)="navigateInsertKey()"
+      id="voltarButton"
+    />
+    <h2>Transferir</h2>
+</nav>
 <body>
-  <p class="destinatario">Destinatário: João Pedro Carvalho de Jesus</p>
+  <p class="destinatario">Destinatário: {{`${destinatario.nome} ${destinatario.sobrenome}`}}</p>
   <hr />
   <section class="input-container">
     <p>Digite a quantidade a ser transferida</p>
@@ -17,5 +36,5 @@
       />
     </div>
   </section>
-  <button class="button" (click)="navigatePaymentMethod()">Prosseguir</button>
+  <button (click)="navigatePaymentMethod()">Prosseguir</button>
 </body>

@@ -1,0 +1,29 @@
+section{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cem{
+    height: 100vh;
+}
+
+.oito{
+    height: 88vh;
+}
+
+button {
+    background: #3118df;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 200px;
+    margin-top: 20px;
+}
