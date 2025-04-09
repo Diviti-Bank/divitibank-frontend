@@ -13,6 +13,8 @@ import { Card } from '../../Interfaces/Card';
 export class CriarCartaoComponent implements OnInit {
   cpf!: string;
 
+  buttonView: boolean = true;
+
   cartoes!: Card[];
   cartaoAtual!: Card;
 
@@ -42,6 +44,7 @@ export class CriarCartaoComponent implements OnInit {
   }
 
   cadastrar() {
+    this.buttonView = !this.buttonView;
     if (this.cartoes.length == 0) {
       if (
         this.tipoCartao &&
@@ -53,26 +56,18 @@ export class CriarCartaoComponent implements OnInit {
         this.nomeCartao = this.nome.nativeElement.value.toUpperCase();
         this.numeroCartao = this.gerarNumeroCartao();
         this.validade = this.gerarValidade();
+        
 
-        const card: Card = {
-          status: this.status,
-          credito: this.credito,
-          tipo_cartao: this.tipoCartao,
-          cor_cartao: this.corCartao,
-          aproximacao: this.aproximacao,
-          cvc: this.cvc,
-          nome_cartao: this.nomeCartao,
-          numero_cartao: this.numeroCartao,
-          validade: this.validade,
-        };
+        const card: Card = this.gerarCartao();
 
         this.service.cadastrarCartao(this.cpf, card).subscribe(
           (res) => {
             console.log('Cadastro de cartão realizado com sucesso:', res);
-            this.router.navigate(['/divitibank-cardSuccess']);
+            this.router.navigate(['/divitibank-success', 'Cartão criado com sucesso!', false, 'Voltar', 'divitibank-cards']);
           },
           (erro) => {
             console.error('Erro no cadastro:', erro);
+            this.router.navigate(['/divitibank-error', 'Ocorreu um erro na criação do cartão.', false]);
           }
         );
       } else {
@@ -80,7 +75,6 @@ export class CriarCartaoComponent implements OnInit {
       }
     } else if (this.cartoes.length == 1){
       if (
-        this.tipoCartao &&
         this.aproximacao != null &&
         this.nome.nativeElement.value != ''
       ) {
@@ -96,25 +90,23 @@ export class CriarCartaoComponent implements OnInit {
           this.corCartao = 'blue';
         }
 
-        const card: Card = {
-          status: this.status,
-          credito: this.credito,
-          tipo_cartao: this.tipoCartao,
-          cor_cartao: this.corCartao,
-          aproximacao: this.aproximacao,
-          cvc: this.cvc,
-          nome_cartao: this.nomeCartao,
-          numero_cartao: this.numeroCartao,
-          validade: this.validade,
-        };
+        if(this.cartaoAtual.tipo_cartao == 'Crédito') {
+          this.tipoCartao = 'Débito';
+        }
+        if(this.cartaoAtual.tipo_cartao == 'Débito') {
+          this.tipoCartao = 'Crédito';
+        }
+
+        const card: Card = this.gerarCartao();
 
         this.service.cadastrarCartao(this.cpf, card).subscribe(
           (res) => {
             console.log('Cadastro de cartão realizado com sucesso:', res);
-            this.router.navigate(['/divitibank-cardSuccess']);
+            this.router.navigate(['/divitibank-success', 'Cartão criado com sucesso!', false, 'Voltar', 'divitibank-cards']);
           },
           (erro) => {
             console.error('Erro no cadastro:', erro);
+            this.router.navigate(['/divitibank-error', 'Ocorreu um erro na criação do cartão.', false]);
           }
         );
       } else {
@@ -141,6 +133,42 @@ export class CriarCartaoComponent implements OnInit {
     const ano = Math.floor(28 + Math.random() * 8).toString();
 
     return `${mes}/${ano}`;
+  }
+
+  gerarCartao(): Card {
+    if(this.tipoCartao == 'Crédito'){
+      const card: Card = {
+        status: this.status,
+        credito: this.credito,
+        tipo_cartao: this.tipoCartao,
+        cor_cartao: this.corCartao,
+        aproximacao: this.aproximacao,
+        fatura: 0,
+        extrato: [],
+        cvc: this.cvc,
+        nome_cartao: this.nomeCartao,
+        numero_cartao: this.numeroCartao,
+        validade: this.validade,
+      };
+
+      return card
+    } else {
+      const card: Card = {
+        status: this.status,
+        credito: this.credito,
+        tipo_cartao: this.tipoCartao,
+        cor_cartao: this.corCartao,
+        aproximacao: this.aproximacao,
+        fatura: 0,
+        extrato: null,
+        cvc: this.cvc,
+        nome_cartao: this.nomeCartao,
+        numero_cartao: this.numeroCartao,
+        validade: this.validade,
+      };
+
+      return card;
+    }
   }
 
   navigatePrincipal() {

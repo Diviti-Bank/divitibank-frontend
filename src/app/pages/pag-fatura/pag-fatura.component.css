@@ -1,0 +1,70 @@
+section{
+    width: 100%;
+    height: 88vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+span{
+    width: 60%;
+    min-height: 5vh;
+    max-height: 40vh;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    margin: 20px;
+
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+#dadosExtrato{
+    width: 100%;
+
+    min-height: 5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    scroll-behavior: auto;
+}
+
+#dado{
+    width: 55vw;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 2px solid #D9D9D9;
+    border-radius: 15px;
+
+    margin: 15px;
+    padding: 15px;
+}
+
+.dinheiroPer{
+    color: red;
+}
+
+.dinheiroRec{
+    color: rgb(0, 255, 0);
+}
+
+button {
+    background: #3118df;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 150px;
+    height: 40px;
+}

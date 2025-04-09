@@ -20,9 +20,10 @@ import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.
 import { ConfirmTransferComponent } from './components/confirm-transfer/confirm-transfer.component';
 import { ReceiptComponent } from './pages/pags-transferencia/receipt/receipt.component';
 import { CriarCartaoComponent } from './pages/criar-cartao/criar-cartao.component';
-import { CadastroSucessoComponent } from './success/cadastro-sucesso/cadastro-sucesso.component';
-import { CartaoSucessoComponent } from './success/cartao-sucesso/cartao-sucesso.component';
 import { GeneralErrorComponent } from './error/general-error/general-error.component';
+import { PagFaturaComponent } from './pages/pag-fatura/pag-fatura.component';
+import { GeneralSuccessComponent } from './success/general-success/general-success.component';
+import { ConfirmCardExclusionComponent } from './pages/confirm-card-exclusion/confirm-card-exclusion.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,10 @@ import { GeneralErrorComponent } from './error/general-error/general-error.compo
     ConfirmTransferComponent,
     ReceiptComponent,
     CriarCartaoComponent,
-    CadastroSucessoComponent,
-    CartaoSucessoComponent,
     GeneralErrorComponent,
+    PagFaturaComponent,
+    GeneralSuccessComponent,
+    ConfirmCardExclusionComponent,
   ],
   imports: [
     BrowserModule,

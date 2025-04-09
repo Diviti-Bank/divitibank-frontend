@@ -18,7 +18,10 @@
         <input type="email" placeholder="E-mail" required #email />
         <input type="password" placeholder="Senha" required #senha />
       </form>
-      <button type="submit" class="register-btn" (click)="cadastrar()">
+      <button type="submit" class="register-btn" (click)="cadastrar()" *ngIf="showButton">
+        Cadastrar-se
+      </button>
+      <button type="submit" class="register-btn" *ngIf="!showButton">
         Cadastrar-se
       </button>
     </div>

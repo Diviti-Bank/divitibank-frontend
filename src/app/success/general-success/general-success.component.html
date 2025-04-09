@@ -1,0 +1,5 @@
+<section [ngClass]="{'cem': isStart == 'true', 'oito': isStart == 'false'}">
+    <img src="assets/images/Success.svg" alt="" style="width: 80px; fill: green;">
+    <h1>{{message}}</h1>
+    <button (click)="navigateEndpoint()">{{buttonMessage}}</button>
+</section>

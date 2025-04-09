@@ -1,0 +1,31 @@
+<div style="width: 98%; position: absolute; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+    <img src="assets/images/Return.svg" alt="" style="cursor: pointer;" (click)="navigateCards()"/>
+    <h2>Fatura</h2>
+</div>
+<section>
+  <h1>Extrato do cartão:</h1>
+  <span>
+      <div id="dadosExtrato">
+        <div *ngFor="let extrato of cartao.extrato">
+          <div id="dado">
+            <div>
+              <h3>{{ extrato.origem }}</h3>
+              <p>Efetuada</p>
+            </div>
+            <h3
+              [ngClass]="{
+                dinheiroPer: extrato.quantia < 0,
+                dinheiroRec: extrato.quantia > 0
+              }"
+            >
+              R$ {{ extrato.quantia | number : "1.2-2" }}
+            </h3>
+          </div>
+        </div>
+        <h2 *ngIf="cartao.extrato?.length == 0">O extrato está vazio.</h2>
+      </div>
+  </span>
+  <h2>Total: R${{cartao.fatura}}</h2>
+  <br>
+  <button (click)="pagarFatura()">Pagar Fatura</button>
+</section>

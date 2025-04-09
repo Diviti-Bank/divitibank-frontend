@@ -17,7 +17,7 @@
   <h2>Criar cartão</h2>
 </nav>
 <section>
-  <form>
+  <form *ngIf="cartoes.length == 0">
     <h3>Tipo do cartão:</h3>
     <label for="">
       <p>Crédito</p>
@@ -89,5 +89,6 @@
   <form action="">
     <input type="text" id="input" placeholder="Seu nome no cartão" #name />
   </form>
-  <button class="login-btn" (click)="cadastrar()">Criar cartão</button>
+  <button class="login-btn" (click)="cadastrar()" *ngIf="buttonView">Criar cartão</button>
+  <button class="login-btn" *ngIf="!buttonView">Criar cartão</button>
 </section>
