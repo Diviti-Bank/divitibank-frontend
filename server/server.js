@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const distFolder = path.join(__dirname, 'dist/divitibank-frontend/browser');
-const indexHtmlPath = path.join(distFolder, 'assets/index.html');
+const indexHtmlPath = path.join(distFolder, 'index.html');
 
 app.use(express.static(distFolder));
 
