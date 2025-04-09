@@ -11,6 +11,8 @@ import { User } from '../../../Interfaces/User';
   styleUrl: './cadastro.component.css',
 })
 export class CadastroComponent {
+  showButton: boolean = true;
+
   @ViewChild('nome') nome!: ElementRef;
   @ViewChild('sobrenome') sobrenome!: ElementRef;
   @ViewChild('cpf') cpf!: ElementRef;
@@ -20,7 +22,7 @@ export class CadastroComponent {
   constructor(private router: Router, private service: CadastroService) {}
 
   cadastrar() {
-    console.log(this.nome.nativeElement.value);
+    this.showButton = !this.showButton
     if (
       this.nome.nativeElement.value != '' &&
       this.sobrenome.nativeElement.value != '' &&
@@ -42,7 +44,7 @@ export class CadastroComponent {
         this.service.cadastrarUsuario(user).subscribe(
           (res) => {
             console.log('Cadastro realizado com sucesso:', res);
-            this.router.navigate(['/divitibank-logonSuccess']);
+            this.router.navigate(['/divitibank-success', 'Cadastro realizado com sucesso!', true, 'Avançar pro login', 'divitibank-login']);
           },
           (erro) => {
             console.error('Erro no cadastro:', erro);

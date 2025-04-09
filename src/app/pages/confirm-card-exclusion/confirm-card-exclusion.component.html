@@ -1,0 +1,21 @@
+<div style="width: 98%; position: absolute; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+    <img src="assets/images/Return.svg" alt="" style="cursor: pointer;" (click)="navigateCards()"/>
+    <h2>Excluir</h2>
+</div>
+<section>
+    <h1>Deseja mesmo excluir este cartão?</h1>
+    <h4 *ngIf="cartao.tipo_cartao == 'Crédito'">Ele terá sua fatura quitada no momento da exclusão.</h4>
+    <div id="cartao">
+        <img src="assets/images/MiniCardBlue.svg" alt="" *ngIf="cartao.cor_cartao == 'blue'">
+        <img src="assets/images/MiniCardBlack.svg" alt="" *ngIf="cartao.cor_cartao == 'black'">
+
+        <h3 *ngIf="cartao.cor_cartao == 'blue' && cartao.tipo_cartao == 'Crédito'">DivitiCard Blue Crédito</h3>
+        <h3 *ngIf="cartao.cor_cartao == 'black' && cartao.tipo_cartao == 'Crédito'">DivitiCard Black Crédito</h3>
+        <h3 *ngIf="cartao.cor_cartao == 'blue' && cartao.tipo_cartao == 'Débito'">DivitiCard Blue Débito</h3>
+        <h3 *ngIf="cartao.cor_cartao == 'black' && cartao.tipo_cartao == 'Débito'">DivitiCard Black Débito</h3>
+    </div>
+    <div id="botoes">
+        <button style="background-color: red;" (click)="excluirCartao()">Excluir</button>
+        <button (click)="navigateCards()">Cancelar</button>
+    </div>
+</section>

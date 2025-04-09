@@ -13,9 +13,10 @@ import { PaymentMethodComponent } from './pages/pags-transferencia/payment-metho
 import { RelatoryComponent } from './pages/pags-transferencia/relatory/relatory.component';
 import { ReceiptComponent } from './pages/pags-transferencia/receipt/receipt.component';
 import { CriarCartaoComponent } from './pages/criar-cartao/criar-cartao.component';
-import { CadastroSucessoComponent } from './success/cadastro-sucesso/cadastro-sucesso.component';
-import { CartaoSucessoComponent } from './success/cartao-sucesso/cartao-sucesso.component';
 import { GeneralErrorComponent } from './error/general-error/general-error.component';
+import { PagFaturaComponent } from './pages/pag-fatura/pag-fatura.component';
+import { GeneralSuccessComponent } from './success/general-success/general-success.component';
+import { ConfirmCardExclusionComponent } from './pages/confirm-card-exclusion/confirm-card-exclusion.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/divitibank', pathMatch: 'full'},
@@ -26,14 +27,15 @@ const routes: Routes = [
   {path: 'divitibank-userInfo', component: UserInfosComponent},
   {path: 'divitibank-extract', component: ExtractComponent},
   {path: 'divitibank-createCard', component: CriarCartaoComponent},
+  {path: 'divitibank-confirmCardExclusion', component: ConfirmCardExclusionComponent},
   {path: 'divitibank-cards', component: PagCartoesComponent},
+  {path: 'divitibank-invoicePayment', component: PagFaturaComponent},
   {path: 'divitibank-transfer-keyPage', component: KeyPageComponent},
   {path: 'divitibank-transfer-insertAmount', component: InsertAmountComponent},
   {path: 'divitibank-transfer-paymentMethod', component: PaymentMethodComponent},
   {path: 'divitibank-transfer-relatory', component: RelatoryComponent},
   {path: 'divitibank-transfer-receipt', component: ReceiptComponent},
-  {path: 'divitibank-logonSuccess', component: CadastroSucessoComponent},
-  {path: 'divitibank-cardSuccess', component: CartaoSucessoComponent},
+  {path: 'divitibank-success/:message/:start/:buttonMessage/:endpoint', component: GeneralSuccessComponent},
   {path: 'divitibank-error/:message/:start', component: GeneralErrorComponent},
 ];
 
