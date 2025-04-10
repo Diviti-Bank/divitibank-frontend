@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Card } from '../../Interfaces/Card';
-import { LoginService } from '../../services/logCad/login/login.service';
+import { Card } from '../../../Interfaces/Card';
+import { LoginService } from '../../../services/logCad/login/login.service';
 import { Router } from '@angular/router';
-import { CardService } from '../../services/card/card.service';
+import { CardService } from '../../../services/card/card.service';
 
 @Component({
   selector: 'app-pag-cartoes',

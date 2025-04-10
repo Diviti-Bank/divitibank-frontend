@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Transfer } from '../../Interfaces/Transfer';
+import { Transfer } from '../../../Interfaces/Transfer';
 import { Router } from '@angular/router';
-import { CardService } from '../../services/card/card.service';
-import { LoginService } from '../../services/logCad/login/login.service';
-import { Card } from '../../Interfaces/Card';
+import { CardService } from '../../../services/card/card.service';
+import { LoginService } from '../../../services/logCad/login/login.service';
+import { Card } from '../../../Interfaces/Card';
 
 @Component({
   selector: 'app-pag-fatura',

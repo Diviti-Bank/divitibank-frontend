@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CardService } from '../../services/card/card.service';
+import { CardService } from '../../../services/card/card.service';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/logCad/login/login.service';
-import { Card } from '../../Interfaces/Card';
+import { LoginService } from '../../../services/logCad/login/login.service';
+import { Card } from '../../../Interfaces/Card';
 
 @Component({
   selector: 'app-criar-cartao',
