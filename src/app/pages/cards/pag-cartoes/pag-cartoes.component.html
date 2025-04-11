@@ -59,7 +59,7 @@
         <span>
           <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <h2>DivitiCard Blue:</h2>
-            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura}} ></h2>
+            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura | number:'1.2-2' }} ></h2>
           </div>
           <div id="blackLine"></div>
         </span>
@@ -83,7 +83,7 @@
         <span>
           <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <h2>DivitiCard Black:</h2>
-            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura}} ></h2>
+            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura | number:'1.2-2' }} ></h2>
           </div>
           <div id="whiteLine"></div>
         </span>
@@ -162,7 +162,7 @@
         <span>
           <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <h2>DivitiCard Blue:</h2>
-            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura}}></h2>
+            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura | number:'1.2-2' }}></h2>
           </div>
           <div id="blackLine"></div>
         </span>
@@ -186,7 +186,7 @@
         <span>
           <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <h2>DivitiCard Black:</h2>
-            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura}} ></h2>
+            <h2 *ngIf="card.tipo_cartao == 'Crédito'" style="cursor: pointer;" (click)="navigatePagarFatura(card)">Fatura do cartão: R${{card.fatura | number:'1.2-2' }} ></h2>
           </div>
           <div id="whiteLine"></div>
         </span>
