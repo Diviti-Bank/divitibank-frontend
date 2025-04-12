@@ -59,11 +59,23 @@ body {
 
 .login-btn {
     background-color: #3118DF;
+    border: 2px solid #3118DF;
+}
+
+.login-btn:hover{
+    background-color: transparent;
+    color: #3118DF;
 }
 
 .register-btn {
     background-color: #D9D9D9;
     color: black;
+    border: 2px solid #D9D9D9;
+}
+
+.register-btn:hover{
+    background-color: transparent;
+    color: #D9D9D9;
 }
 
 form {

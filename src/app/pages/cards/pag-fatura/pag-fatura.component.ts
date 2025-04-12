@@ -12,6 +12,7 @@ import { Card } from '../../../Interfaces/Card';
   styleUrl: './pag-fatura.component.css'
 })
 export class PagFaturaComponent {
+  showButton: boolean = true;
   cpf!: string;
   cartao!: Card;
 
@@ -30,6 +31,7 @@ export class PagFaturaComponent {
   }
 
   pagarFatura(){
+    this.showButton = !this.showButton;
     this.service.pagarFatura(this.cpf, this.cartao.cor_cartao).subscribe(
       (res) => {
         this.router.navigate(['/divitibank-success', 'Fatura paga com sucesso!', false, 'Voltar', '/divitibank-cards']);

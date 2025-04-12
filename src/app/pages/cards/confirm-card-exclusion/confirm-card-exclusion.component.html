@@ -15,7 +15,8 @@
         <h3 *ngIf="cartao.cor_cartao == 'black' && cartao.tipo_cartao == 'Débito'">DivitiCard Black Débito</h3>
     </div>
     <div id="botoes">
-        <button style="background-color: red;" (click)="excluirCartao()">Excluir</button>
+        <button class="excluir" *ngIf="showButton" (click)="excluirCartao()">Excluir</button>
+        <button class="excluir" *ngIf="!showButton">Excluir</button>
         <button (click)="navigateCards()">Cancelar</button>
     </div>
 </section>

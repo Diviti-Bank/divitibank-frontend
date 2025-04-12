@@ -30,11 +30,27 @@ section{
 
 button {
     color: #EBEBEB;
-    border: none;
+    border: 2px solid #3118DF;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
     background-color: #3118DF;
 
     font-size: 15px;
+}
+
+button:hover{
+    background-color: transparent;
+    color: #3118DF;
+}
+
+.excluir{
+    width: 100px;
+    border: 2px solid rgb(201, 0, 0);
+    background-color: rgb(201, 0, 0);
+}
+
+.excluir:hover{
+    background-color: transparent;
+    color: rgb(201, 0, 0);
 }

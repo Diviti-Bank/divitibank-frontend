@@ -68,14 +68,19 @@ input[type="radio"]:checked {
 }
 
 button {
-  background: #3118df;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 15px;
+  color: #EBEBEB;
+  border: 2px solid #3118DF;
+  padding: 10px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 16px;
-  width: 200px;
+  background-color: #3118DF;
+
+  font-size: 15px;
+}
+
+button:hover{
+  background-color: transparent;
+  color: #3118DF;
 }
 
 #voltarButton {

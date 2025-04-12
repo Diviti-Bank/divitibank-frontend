@@ -243,13 +243,18 @@ footer{
     }
 }
 
-button{
+button {
     color: #EBEBEB;
-    border: none;
+    border: 2px solid #3118DF;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
     background-color: #3118DF;
 
     font-size: 15px;
+}
+
+button:hover{
+    background-color: transparent;
+    color: #3118DF;
 }

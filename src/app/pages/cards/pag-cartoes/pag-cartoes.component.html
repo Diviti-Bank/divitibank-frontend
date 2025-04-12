@@ -5,8 +5,8 @@
 <section *ngIf="cartoes.length > 0 && cardOne">
   <div *ngFor="let card of cartoes.slice(0, 1)">
     <nav style="display: flex; justify-content: center; align-items: end; width: 90%; margin-left: 5vw;">
-      <button style="background-color: rgb(201, 0, 0);" (click)="excluirCartao(card)" *ngIf="clickableExclude">Excluir</button>
-      <button style="background-color: rgb(201, 0, 0);" *ngIf="!clickableExclude">Excluir</button>
+      <button class="excluir" (click)="excluirCartao(card)" *ngIf="clickableExclude">Excluir</button>
+      <button class="excluir" *ngIf="!clickableExclude">Excluir</button>
       <div id="twoCard">
         <div>
           <div *ngIf="cardOne" (click)="changeCard()">
@@ -110,8 +110,8 @@
 <section *ngIf="cartoes.length > 0 && !cardOne">
   <div *ngFor="let card of cartoes.slice(1, 2)">
     <nav style="display: flex; justify-content: center; align-items: end; width: 90%; margin-left: 5vw;">
-      <button style="background-color: rgb(201, 0, 0);" (click)="excluirCartao(card)" *ngIf="clickableExclude">Excluir</button>
-      <button style="background-color: rgb(201, 0, 0);" *ngIf="!clickableExclude">Excluir</button>
+      <button class="excluir"  (click)="excluirCartao(card)" *ngIf="clickableExclude">Excluir</button>
+      <button class="excluir"  *ngIf="!clickableExclude">Excluir</button>
       <div id="twoCard" (click)="changeCard()">
         <div *ngIf="cardOne">
           <div *ngFor="let cardT of cartoes.slice().reverse()">

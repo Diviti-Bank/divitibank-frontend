@@ -38,9 +38,9 @@ nav{
     flex-direction: column;
 }
 
-button{
+button {
     color: #EBEBEB;
-    border: none;
+    border: 2px solid #3118DF;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
@@ -49,7 +49,18 @@ button{
     font-size: 15px;
 }
 
-#cancel{
+button:hover{
     background-color: transparent;
     color: #3118DF;
+}
+
+.cancel{
+    width: 100px;
+    border: 2px solid rgb(201, 0, 0);
+    background-color: rgb(201, 0, 0);
+}
+
+.cancel:hover{
+    background-color: transparent;
+    color: rgb(201, 0, 0);
 }

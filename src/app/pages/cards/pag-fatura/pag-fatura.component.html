@@ -27,5 +27,6 @@
   </span>
   <h2>Total: R${{cartao.fatura | number:'1.2-2' }}</h2>
   <br>
-  <button (click)="pagarFatura()">Pagar Fatura</button>
+  <button *ngIf="showButton" (click)="pagarFatura()">Pagar Fatura</button>
+  <button *ngIf="!showButton">Pagar fatura</button>
 </section>
