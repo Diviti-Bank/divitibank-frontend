@@ -1,7 +1,7 @@
 # DivitibankFrontend
 
 Documentação do Front-End
-Integrantes(front-end):
+Integrantes (front-end):
 João Pedro Paulino do Nascimento
 Rafael Pither da Silva Pinto
 
